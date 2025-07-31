@@ -1,0 +1,28 @@
+
+{# Portfolio item #}
+<a href="{{ p.url }}" class="project-card grid-span-half inner" data-aos="fade-up" >
+	<div class="thumbnail">
+
+
+		<picture>
+		    <source media="(min-width:650px)" srcset="{{ p.media[p.header.thumbnail].url }}">
+  			<img src="{{ p.media[p.header.thumbnail].url }}" alt="{{ p.title }}" height="auto" width="100%" loading="lazy" >
+		</picture>
+
+	</div>
+	<div class="project-info">
+		<div class="title-arrow">
+			<h2>{{ p.title }}</h2>
+			{# {% include 'partials/arrow.html.twig' %} #}
+		</div>
+
+	</div>
+	{# <div class="project-info">
+		<h2>{{ p.header.description }}</h2>
+		<h3>{{ p.title }}</h3>
+		{% for tag in p.taxonomy.tag %}
+			<p class="tag">{{tag}}</p>
+		{% endfor %}
+	</div>
+ #}	
+</a>

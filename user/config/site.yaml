@@ -1,0 +1,20 @@
+title: 'MJD Studio '
+default_lang: en
+author:
+  name: 'Michael J Davies'
+  email: hello@mjd.studio
+taxonomies:
+  - category
+  - tag
+  - topic
+metadata:
+  description: 'Helping positive causes clarify their message and communicate visually to make an impact.'
+summary:
+  enabled: true
+  format: short
+  size: 300
+  delimiter: '==='
+redirects: null
+routes: null
+blog:
+  route: /blog

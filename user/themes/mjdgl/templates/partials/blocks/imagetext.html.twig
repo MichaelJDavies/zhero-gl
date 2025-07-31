@@ -1,0 +1,23 @@
+{# <div class="section-head" data-trigger="{{ content.heading|lower|replace({' ': '-'}) }}" id="{{ content.heading|lower|replace({' ': '-'}) }}"> #}
+	
+	{% if content.align %}
+		{% set alignment = 'rightblock' %}
+	{% else %}
+		{% set alignment = 'lefttblock' %}
+	{% endif %}
+
+
+
+	<div class="inner {{ alignment }}">
+		<div class="content-block">
+			{{ content.content|markdown }}			
+		</div>
+
+
+		<picture>
+		    <source media="(min-width:650px)" srcset="{{ page.media[content.image].url }}">
+  			<img src="{{ page.media[content.image].url }}" alt="" height="auto" width="100%" loading="lazy" >
+		</picture>
+
+	</div>
+{# </div> #}

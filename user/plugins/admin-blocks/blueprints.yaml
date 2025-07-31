@@ -1,0 +1,42 @@
+name: Admin Content Blocks
+type: plugin
+version: 1.1.1
+description: Define blocks in your page blueprints and use them in the admin panel to orchestrate the content.
+icon: empire
+author:
+  name: Falk Mu://er
+  email: grav@falk-m.org
+  url: https://falk-m.de
+homepage: https://github.com/falk-m/grav-plugin-admin-blocks
+keywords: admin, plugin, manager, panel
+bugs: https://github.com/falk-m/grav-plugin-admin-blocks/issues
+docs: https://github.com/falk-m/grav-plugin-admin-blocks/blob/master/README.md
+license: MIT
+
+dependencies:
+    - { name: grav, version: '>=1.7.42' }
+    - { name: admin, version: '>=1.0.0' }
+
+form:
+  validation: loose
+  fields:
+    enabled:
+      type: toggle
+      label: PLUGIN_ADMIN.PLUGIN_STATUS
+      highlight: 1
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+    use_demo:
+      type: toggle
+      label: PLUGIN_BLOCKS.USE_DEMO
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool

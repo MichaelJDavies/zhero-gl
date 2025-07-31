@@ -1,0 +1,22 @@
+enabled: true
+from: michaeldavies1995@gmail.com
+from_name: 'MJD Website'
+to: hello@michaeljdavies.com
+to_name: 'Michael Davies'
+queue:
+  enabled: false
+  flush_frequency: '* * * * *'
+  flush_msg_limit: 10
+  flush_time_limit: 100
+mailer:
+  engine: sendmail
+  smtp:
+    server: localhost
+    port: 25
+    encryption: none
+    user: mike
+    password: M1key123$
+  sendmail:
+    bin: '/usr/sbin/sendmail -bs'
+content_type: text/html
+debug: false

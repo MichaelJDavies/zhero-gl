@@ -1,0 +1,19 @@
+/* Hide form-fieldset by default */
+ul.field-selection > li > .form-fieldset {
+    display: none;
+}
+
+/* Show form-fieldset that is selected */
+ul.field-selection > li > .form-fieldset.field-selection--show {
+    display: block;
+}
+
+.gp-banner{
+    display: none;
+}
+
+
+/*I added this to remove the Grav premium banner */
+.dashboard-notifications-container, .plugins-notifications-container, .themes-notifications-container{
+    display: none;
+}

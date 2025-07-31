@@ -1,0 +1,31 @@
+form: flex-pages
+id: 'tmp://forms/session/063253eaefe409211106d6905547c310'
+unique_id: 063253eaefe409211106d6905547c310
+url: '/pages/design4/:add'
+user:
+  username: mike
+  email: mkedavies@gmail.com
+timestamps:
+  created: 1753527164
+  updated: 1753527164
+data: null
+files: {  }
+object:
+  type: pages
+  key: design4
+  storage_key: ''
+  timestamp: 0
+  serialized:
+    __META: {  }
+    storage_key: ''
+    parent_key: ''
+    order: '04.'
+    folder: design4
+    template: external
+    lang: ''
+    root: false
+    route: /
+    name: external
+    header:
+      title: design4
+    frontmatter: "title: design4\n"

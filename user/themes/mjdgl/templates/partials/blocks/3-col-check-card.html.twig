@@ -1,0 +1,41 @@
+
+{# 
+{% set parent_route = content.parentpage %}
+{% set filter_featured = content.featuredfilter %}
+
+{% set parent_page = page.find(parent_route) %}
+
+{% if parent_page %}
+  {% set children = parent_page.children.visible %}
+  {% if filter_featured %}
+    {% set children = children|filter(p => p.header.featured == false) %}
+  {% endif %}
+
+    {% for p in children %} #}
+      {# <li><a href="{{ p.url }}">{{ p.menu|default(p.title) }}</a></li> #}
+{#       {% include 'partials/page-card.twig' %}
+    {% endfor %}
+
+{% else %}
+  <p>Parent page "{{ parent_route }}" not found.</p>
+{% endif %} #}
+
+
+{# {% for card in content %}
+    {% include 'partials/check-card.twig' with { column: card.column } %}
+  {% endfor %} #}
+
+{% if block_element['3-col-check-card'] is defined %}
+  {% set card_data = block_element['3-col-check-card'] %}
+  {% set column = card_data.columns %}
+
+
+
+<div class="check-card-list columns-{{ column }}">
+
+  {% for card in card_data.cards %}
+    {% include 'partials/check-card.twig' with { column: column, card: card } %}
+  {% endfor %}
+
+</div>  
+{% endif %}

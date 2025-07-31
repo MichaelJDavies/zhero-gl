@@ -1,0 +1,14 @@
+version: '1.2'
+timestamp: 1750617855
+count: 2
+index:
+  michaeljdavies:
+    storage_key: michaeljdavies
+    storage_timestamp: 1576975405
+    key: michaeljdavies
+    email: michaeldavies1995@gmail.com
+  mike:
+    storage_key: mike
+    storage_timestamp: 1750617855
+    key: mike
+    email: mkedavies@gmail.com

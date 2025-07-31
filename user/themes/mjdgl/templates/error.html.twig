@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    {% block head %}
+        <meta charset="utf-8" />
+        <title>{% if header.title != "Home" %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}</title>
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% include 'partials/metadata.html.twig' %}
+
+        <link rel="icon" href="{{ url('theme://images/favicon/favicon.svg') }}">
+        <link rel="mask-icon" href="{{ url('theme://images/favicon/pinned-tab.svg') }}" color="#051432">
+        <link rel="alternate icon"  type="image/png" href="{{ url('theme://images/favicon/android-chrome-192x192.png') }}" />
+        <link rel="alternate icon"  type="image/png" href="{{ url('theme://images/favicon/android-chrome-512x512.png') }}" />
+        <link rel="alternate icon"  type="image/png" href="{{ url('theme://images/favicon/apple-touch-icon.png') }}" />
+        <link rel="alternate icon" type="image/png" href="{{ url('theme://images/favicon/favicon-16x16.png') }}" />
+        <link rel="alternate icon"  type="image/png" href="{{ url('theme://images/favicon/favicon-32x32.png') }}" />
+        <link rel="alternate icon"  type="image/png" href="{{ url('theme://images/favicon/favicon.ico') }}" />
+
+        <link rel="canonical" href="{{ page.url(true, true) }}" />
+    {% endblock head%}
+
+
+    <meta property="og:title" content="MJD| Creative Brand and Digital Designer "/>
+    <meta property="og:description" content="Helping positive causes clarify their message and communicate visually to make an impact."/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="{{ url('theme://images/og/mjd-og.jpg') }}"/>
+
+    {% block stylesheets %}
+        {# {% do assets.addCss('https://unpkg.com/purecss@1.0.0/build/pure-min.css', 100) %} #}
+        <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" >
+
+        {# {% do assets.addCss('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', 99) %} #}
+        {# {% do assets.addCss('theme://css/custom.css', 98) %} #}
+        {% do assets.addCss('theme://css/main.min.css', 97) %}
+        <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/user/themes/michael-j-davies/css/custom.css" >
+        {# Fonts #}
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inconsolata:wght@400;500;700&display=swap">
+        {# AOS #}
+        <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://unpkg.com/aos@2.3.1/dist/aos.css" >
+
+    {% endblock %}
+
+    {% block assets deferred %}
+        {{ assets.css()|raw }}
+        {{ assets.js()|raw }}
+    {% endblock %}
+</head>
+<body class="error">
+
+
+    <div class="error-container">
+    	<div class="wrapper1024 error-info">
+    		<h1>Yikes!</h1>
+	        <div class="errorcontent">
+	        {{ page.content }}
+	        </div>
+	        <div class="errorlink">
+	        	<a class="button-rev" href="/">
+	        	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55.982 46.421">
+				  <g id="Group_364" data-name="Group 364" transform="translate(3946.832 5317.277)">
+				    <path id="Path_684" data-name="Path 684" d="M-3754.5-5297.156l-21.089,21.089,21.089,21.089" transform="translate(-167 -18)" fill="none" stroke-width="6"/>
+				    <path id="Path_685" data-name="Path 685" d="M-3942.589-5294.067h51.739" fill="none" stroke-width="6"/>
+				  </g>
+				</svg>
+
+				See cool work instead
+				</a>
+	        </div>
+	        
+    	</div>
+        
+        
+        
+    </div>
+
+
+
+</body>
+</html>
+

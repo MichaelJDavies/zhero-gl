@@ -1,0 +1,16 @@
+{# {% for card in content %}
+  {% include 'partials/swatch-card.twig' %}
+{% endfor %} #}
+
+{% if block_element['swatch-cards'] is defined %}
+  {% set card_data = block_element['swatch-cards'] %}
+  {% set column = card_data.columns %}
+
+<div class="swatch-card-list columns-{{ column }}">
+
+  {% for card in card_data.cards %}
+    {% include 'partials/swatch-card.twig' with { column: column, card: card } %}
+  {% endfor %}
+
+</div>  
+{% endif %}

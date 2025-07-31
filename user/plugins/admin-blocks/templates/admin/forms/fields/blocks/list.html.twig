@@ -1,0 +1,36 @@
+{% set value = (value is null ? field.default : value) %}
+{% set value = (value ? value : []) %}
+{% set name = field.name %}
+{% set list_classes = (field.classes is defined ? field.classes : '') ~ ' blocks__list' %}
+
+<ul class="{{ list_classes }}" data-block-element="list">
+    {% if field.fields %}
+        {% for key, val in value %}
+            {% for block_field_name, block_field_Value in val %}
+                {% set block_field = field.fields['.' ~ block_field_name] %}
+                {% if block_field %}
+                {% set item_name = (name ? name ~ '.' ~ key : key) ~ '.' ~ block_field_name %}
+                {% set child = block_field|merge({ name: item_name }) %}
+
+                {% set field_templates = include_form_field(child.type, field_layout, default_layout) %}
+                {% set template_data = { field: child, value: block_field_Value, originalValue: null } %}
+
+                {% if default_layout != 'key' %}
+                    {% if child.type == 'fieldset' %}
+                        {% set template_data = template_data|merge({val: child_value}) %}
+                    {% endif %}
+                {% endif %}
+
+
+                {% include 'forms/fields/blocks/block.html.twig' with {
+                    label: block_field.label, 
+                    key: key, 
+                    collapsed: true, 
+                    field_templates:field_templates, 
+                    template_data: template_data} %}
+
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
+</ul>

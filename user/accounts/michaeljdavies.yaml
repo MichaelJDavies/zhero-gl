@@ -1,0 +1,11 @@
+email: michaeldavies1995@gmail.com
+fullname: 'Michael Davies'
+title: Admin
+state: enabled
+access:
+  admin:
+    login: true
+    super: true
+  site:
+    login: true
+hashed_password: $2y$10$XMC1gvabZQVZeBKkUnwbQOOP4RW0UjhdIzCRpQJDJhOv7gDdz51O2

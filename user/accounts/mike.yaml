@@ -1,0 +1,21 @@
+state: enabled
+email: mkedavies@gmail.com
+fullname: Michael
+title: Mike
+pw_resets:
+  - 1568142230
+hashed_password: $2y$10$xbIfmy3SWKh6bhqlnsE4Vu/gQvhdKCBXadBnLVj5VZXsVeEIeEKQi
+language: en
+content_editor: default
+twofa_enabled: false
+twofa_secret: LMDSFXJJBD6Z6O3ESXCGWL4VPJNY4R3V
+avatar:
+  user/accounts/avatars/dwf72hdcsomzots.jpg:
+    name: dwf72hdcsomzots.jpg
+    type: image/jpeg
+    size: 852953
+    path: user/accounts/avatars/dwf72hdcsomzots.jpg
+access:
+  admin:
+    login: true
+    super: true

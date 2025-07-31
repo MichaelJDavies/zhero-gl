@@ -1,0 +1,348 @@
+title: Project
+
+rules:
+  slug:
+    pattern: '[a-zA-Zа-яA-Я0-9_\-]+'
+    min: 1
+    max: 200
+
+form:
+  validation: loose
+
+  fields:
+
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        content:
+          type: tab
+          title: PLUGIN_ADMIN.CONTENT
+
+          fields:
+            xss_check:
+              type: xss
+
+
+            columns:
+              type: columns
+              fields:
+                column1:
+                  type: column
+                  fields:
+
+                    header.title:
+                      type: text
+                      autofocus: true
+                      style: vertical
+                      label: PLUGIN_ADMIN.TITLE
+
+                    header.description:
+                      type: text
+                      autofocus: true
+                      style: vertical
+                      label: Page introduction.
+                    header.thumbnail:
+                      type: filepicker
+                      folder: '@self'
+                      label: Thumbnail Image
+                      preview_images: true
+                      accept:
+                        - .png
+                        - .jpg
+                        - .svg
+                        - .gif
+                        - .webp
+                    
+                    # header.taxonomy:
+                    #   type: taxonomy
+                    #   label: PLUGIN_ADMIN.TAXONOMY
+                    #   multiple: true
+                    #   validate:
+                    #     type: array
+
+                    # header.bgcolor:
+                    #   type: colorpicker
+                    #   label: Page BG Color
+                    #   size: small
+                    #   default: '#ffffff'
+                    header.opnparentpage:
+                        type: pages
+                        size: medium
+                        classes: fancy
+                        label: On Page Nav Parent
+                        # start_route: '/'
+                        show_all: true
+                        show_modular: false
+                        show_root: false
+                        help: PLUGIN_ADMIN.HOME_PAGE_HELP
+
+                    header.featured:
+                      type: toggle
+                      label: Featured
+                      highlight: 1
+                      default: 0
+                      options:
+                          1: Yes
+                          0: No
+                      validate:
+                          type: bool
+
+                    # header.client:
+                    #   type: text
+                    #   autofocus: true
+                    #   style: vertical
+                    #   label: Client
+
+                    # header.studio:
+                    #   type: text
+                    #   autofocus: true
+                    #   style: vertical
+                    #   label: Studio
+
+                    # header.longdescription:
+                    #   type: markdown
+                    #   autofocus: true
+                    #   style: vertical
+                    #   label: A longer description of the project.
+                    # header.longdescription02:
+                    #   type: markdown
+                    #   autofocus: true
+                    #   style: vertical
+                    #   label: A longer description of the project.
+                column2:
+                  type: column
+                  fields:
+                    frontmatter:
+                      classes: frontmatter
+                      type: editor
+                      label: PLUGIN_ADMIN.FRONTMATTER
+                      autofocus: true
+                      codemirror:
+                        mode: 'yaml'
+                        indentUnit: 4
+                        autofocus: true
+                        indentWithTabs: false
+                        lineNumbers: true
+                        styleActiveLine: true
+                        gutters: ['CodeMirror-lint-markers']
+                        lint: true
+                    header.media_order:
+                      type: pagemedia
+                      label: All page media
+# form:
+#   fields:
+#     tabs:
+#       fields:
+#         content:
+#           fields:
+#             replace@: true
+#             header.title:
+#               type: text
+#               autofocus: true
+#               style: vertical
+#               label: PLUGIN_ADMIN.TITLE
+            header.blocks:
+                type: blocks
+                label: Content blocks
+                style: vertical
+                fields:
+                  .sectionhead:
+                    type: section
+                    label: Section heading
+                    fields:
+                      .heading:
+                        type: text
+                        label: Heading
+                      .content:
+                        type: editor
+                        label: Content
+                  .sectionsubhead:
+                    type: section
+                    label: Subheading
+                    fields:
+                      .content:
+                        type: text
+                        label: Text
+                  .imagetext:
+                    type: section
+                    label: Image with text
+                    fields:
+                      .content:
+                        type: editor
+                        label: Content
+                      .image:
+                        type: filepicker
+                        folder: 'self@'
+                        preview_images: true
+                        label: Image
+                      .align:
+                        type: toggle
+                        label: Align image
+                        default: 1
+                        options:
+                            1: Left
+                            0: Right
+                        validate:
+                            type: bool
+                  .text:
+                      type: editor
+                      label: Content
+                  .image:
+                      type: filepicker
+                      folder: 'self@'
+                      preview_images: true
+                      label: Image
+                  .imagefull:
+                      type: filepicker
+                      folder: 'self@'
+                      preview_images: true
+                      label: Full Width Image
+                  .3-col-check-card:
+                      type: section
+                      label: Check cards
+                      fields:
+                        .columns:
+                          type: select
+                          classes: fancy
+                          label: 'Number of columns'
+                          help: 'Pages in a list will render using this order unless it is overridden'
+                          options:
+                              2: '2'
+                              3: '3'
+                              4: '4'
+                        .cards:
+                          type: list
+                          style: vertical
+                          label: 3 Column Check Card List
+                          fields:
+                            .image:
+                              type: filepicker
+                              folder: 'self@'
+                              preview_images: true
+                              label: Image
+                            .content:
+                              type: editor
+                            .checkcross:
+                              type: toggle
+                              label: Check or cross
+                              default: 1
+                              options:
+                                  1: Check
+                                  0: Cross
+                              validate:
+                                  type: bool
+                  .swatch-cards:
+                      type: section
+                      label: Swatch cards
+                      fields:
+                        .columns:
+                            type: select
+                            classes: fancy
+                            label: 'Number of columns'
+                            help: 'Pages in a list will render using this order unless it is overridden'
+                            options:
+                                2: '2'
+                                3: '3'
+                                4: '4'
+                        .cards:
+                          type: list
+                          style: vertical
+                          label: Colour swatch cards
+                          fields:
+                            .colour:
+                              type: colorpicker
+                              label: Choose color
+                              default: '#FFFFFF'
+                            .name:
+                              type: text
+                              label: Colour name
+                            .rgb:
+                              type: text
+                              label: RGB value
+                            .cmyk:
+                              type: text
+                              label: CMYK breakdown
+       
+                  .url-list:
+                      type: list
+                      style: vertical
+                      label: Url list
+                      fields:
+                        .url:
+                          type: text
+                          label: Url
+                        .title:
+                          type: text
+                          label: Title
+                  .cardlist:
+                    type: section
+                    label: Card list
+                    fields:
+                      .parentpage:
+                        type: pages
+                        size: medium
+                        classes: fancy
+                        label: Parent page
+                        # start_route: '/'
+                        show_all: true
+                        show_modular: false
+                        show_root: false
+                        help: PLUGIN_ADMIN.HOME_PAGE_HELP
+                      .featuredfilter:
+                        type: toggle
+                        label: Filter our featured pages?
+                        highlight: 1
+                        options:
+                            1: Yes
+                            0: No
+                        validate:
+                            type: bool
+                  .boxout-button:
+                    type: section
+                    label: Boxout button
+                    fields:
+                      .heading:
+                        type: text
+                        label: Heading
+                      .content:
+                        label: Content
+                        type: editor
+                      .buttontext:
+                        type: text
+                        label: Button text
+                      .buttonurl:
+                        type: text
+                        label: Button URL
+                      .buttonlinkinternal:
+                        type: pages
+                        size: medium
+                        classes: fancy
+                        label: Parent page
+                        # start_route: '/'
+                        show_all: true
+                        show_modular: false
+                        show_root: false
+                        help: PLUGIN_ADMIN.HOME_PAGE_HELP
+
+                  .featuredcardlist:
+                    type: section
+                    label: Featured card
+                    fields:
+                      .parentpage:
+                        type: pages
+                        size: medium
+                        classes: fancy
+                        label: Parent page
+                        # start_route: '/'
+                        show_all: true
+                        show_modular: false
+                        show_root: false
+                        help: PLUGIN_ADMIN.HOME_PAGE_HELP
+                      
+
+
+            # header.media_order:
+            #   type: pagemedia
+            #   label: PLUGIN_ADMIN.PAGE_MEDIA

@@ -1,0 +1,91 @@
+{% extends 'partials/base.html.twig' %}
+
+
+{% block onpagenav %}
+
+
+
+
+{% set opn_nav_route = page.header.opnparentpage %}
+
+{% set parent_page = page.find(opn_nav_route) %}
+
+{% if parent_page %}
+  {% set children = parent_page.children.visible %}
+{#   {% if filter_featured %}
+    {% set children = children|filter(p => p.header.featured == false) %}
+  {% endif %} #}
+
+    {% for p in children %}
+        {% set is_active = p.active or p.activeChild %}
+      <li class="{{ is_active ? 'opn-active' : '' }}"><a href="{{ p.url }}">{{ p.menu|default(p.title) }}</a></li>
+       {% if p.active %}
+        {# <span class="current">You're here</span> #}
+        {% set blocks = (page.header.blocks is null ? [] : page.header.blocks | filter(block => (block | keys | first) == 'sectionhead')) %}
+
+        <ul class="sectionlist">
+            {% for block_element in blocks %}
+                {% set block_type = block_element | keys | first %}
+
+                <li class="onpagenav-item"><a href="#{{ block_element[block_type].heading|lower|replace({' ': '-'}) }}">{{ block_element[block_type].heading }}</a></li>
+            
+            {% endfor %}
+        </ul>
+
+      {% endif %}
+
+    {% endfor %}
+
+{% else %}
+  <p>Parent page "{{ opn_nav_route }}" not found.</p>
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
+
+
+{% block content %}
+
+{# Hero Section #}
+
+<div class="page-title">
+	<h1> {{ page.title }}</h1>
+    <div class="page-description">
+        <p>{{ page.header.description }}</p>        
+    </div>
+
+</div>
+
+{# Project Cards #}
+
+{% set blocks = (page.header.blocks is null ? [] : page.header.blocks) %}
+
+{% for block_element in blocks %}
+    {% set block_type = block_element | keys | first %}
+
+    <div class="blocks-{{block_type}}">
+        
+    {% set block_content = block_element[block_type] %}
+
+        {% include 'partials/blocks/' ~ block_type ~ '.html.twig' ignore missing with {content: block_content} %}
+
+    </div>
+{% endfor %}
+
+
+
+
+
+
+{% endblock %}
