@@ -3,12 +3,12 @@ title: Logo
 sitemap:
     lastmod: '26-07-2025 10:57'
 featured: false
-media_order: 'thumb-logo.jpg,Logo-image-01.png,logo-01_min.webp,logo-02_min.webp,logo-03_min.webp,logo-04_min.webp,logo-05_min.webp,logo-06_min.webp,logo-07_min.webp,logo-08_min.webp,logo-09_min.webp,logo-10_min.webp,logo-11_min.webp,logo-12_min.webp,logo-13_min.webp,logo-14_min.webp,logo-15_min.webp,logo-16_min.webp,logo-17_min.webp,logo-18_min.webp,logo-19_min.webp,logo-20_min.webp,logo-21_min.webp,logo-22_min.webp,logo-23_min.webp,logo-24_min.webp,logo-25_min.webp,logo-26_min.webp,logo-27_min.webp,logo-28_min.webp,logo-29_min.webp,logo-30_min.webp'
-thumbnail: thumb-logo.jpg
+media_order: 'thumb-logo_min.webp,thumb-logo.jpg,Logo-image-01.png,logo-01_min.webp,logo-02_min.webp,logo-03_min.webp,logo-04_min.webp,logo-05_min.webp,logo-06_min.webp,logo-07_min.webp,logo-08_min.webp,logo-09_min.webp,logo-10_min.webp,logo-11_min.webp,logo-12_min.webp,logo-13_min.webp,logo-14_min.webp,logo-15_min.webp,logo-16_min.webp,logo-17_min.webp,logo-18_min.webp,logo-19_min.webp,logo-20_min.webp,logo-21_min.webp,logo-22_min.webp,logo-23_min.webp,logo-24_min.webp,logo-25_min.webp,logo-26_min.webp,logo-27_min.webp,logo-28_min.webp,logo-29_min.webp,logo-30_min.webp,logo-31_min.webp,logo-eps_min.webp,logo-jpg_min.webp,logo-png_min.webp,logo-svg_min.webp,logo-00_min.webp'
+thumbnail: thumb-logo_min.webp
 description: 'Our logo is a bold, simple mark that stands for every aspect of who we are. So wherever it shows up, it should show up right.'
 blocks:
     113e776a-6bf2-49cb-badb-59880cfbe24b:
-        imagefull: Logo-image-01.png
+        imagefull: logo-00_min.webp
     7073212e-3eb8-49ff-a020-ab74fded3261:
         sectionhead:
             heading: 'Our logo'
@@ -23,6 +23,39 @@ blocks:
             content: "### Emblem\n\nA bold and powerful symbol, our emblem stands for our mission and our momentum. Use it on its own when the moment calls for something iconic. Just follow the rules below to keep it looking sharp."
             image: logo-02_min.webp
             align: true
+    1078155c-db96-4840-9cf8-bb6e3668f7bb:
+        sectionhead:
+            heading: Filetypes
+            content: 'In our logo suite you’ll find a range of file types available to use. Choosing the right file type for the right application is key to making sure our logo always looks its best.'
+    d9467ad6-4a03-4e6e-adb4-a768800454d3:
+        sectionsubhead:
+            content: 'Digital applications'
+    fb66a88b-34ab-4900-a6db-48a7b700824c:
+        text-image-card-list:
+            columns: '3'
+            cards:
+                -
+                    image: logo-svg_min.webp
+                    content: 'Scalable Vector Graphics (SVG) should be used for digital applications and **not for print**. They can be used in vector editing software like Figma or Adobe Illustrator.'
+                -
+                    image: logo-png_min.webp
+                    content: 'Portable Network Graphics (PNG) are images that allow for a **transparent background**. PNGs are widely used and we tend to use these for digital applications when we need the logo to have a transparent background, such as when it appears on coloured backgrounds, or when using white versions of the logo.'
+                -
+                    image: logo-jpg_min.webp
+                    content: 'Joint Photographic Experts Group (JPEG or JPG) are images that we use for digital and print applications. They do not allow for transparent backgrounds. **Make sure to use JPGs marked ''RGB'' in the filename for use in digital applications.**'
+    db8c55ee-a7bd-4f5a-bd56-042044396254:
+        sectionsubhead:
+            content: 'Print applications'
+    4c64562f-cf10-4c49-a4e9-9a3855693b41:
+        text-image-card-list:
+            columns: '3'
+            cards:
+                -
+                    image: logo-jpg_min.webp
+                    content: 'Joint Photographic Experts Group (JPEG or JPG) are images that we use for digital and print applications. They do not allow for transparent backgrounds. **Make sure to use JPGs marked ''CMYK'' in the filename for use in print applications.**'
+                -
+                    image: logo-eps_min.webp
+                    content: 'Encapsulated PostScript (EPS) is a vector file format that we use for **high-resolution printing**.'
     e947cd9a-689a-4a1d-87fc-45c8d511736f:
         sectionhead:
             heading: 'Using the emblem'
@@ -102,15 +135,15 @@ blocks:
             columns: '3'
             cards:
                 -
-                    image: logo-13_min.webp
+                    image: logo-14_min.webp
                     content: 'Logo on Accent/1'
                     checkcross: true
                 -
-                    image: logo-14_min.webp
+                    image: logo-15_min.webp
                     content: 'Logo on Accent/2'
                     checkcross: true
                 -
-                    image: logo-15_min.webp
+                    image: logo-16_min.webp
                     content: 'Logo on Accent/3'
                     checkcross: true
     3e677808-72a0-49ac-af0e-db7eaa88296e:
@@ -184,16 +217,18 @@ blocks:
     cebf1601-563b-4dba-89d6-e643870fc6b3:
         sectionhead:
             heading: 'Co-branding and partnerships'
-            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Justo, dui pharetra sed ullamcorper id. Iaculis interdum eget ultrices imperdiet.'
+            content: 'When working with partners, we may want to show our logo next to their''s in marketing and communications. As shown below, use twice the height of the ''o'' character in the Zhero wordmark to dictate the distance between our logo and any partner logos.'
     69d92343-764b-4645-b271-f9015a74916b:
         image: logo-30_min.webp
     45697c98-b3ce-432f-8a29-eaefa1647557:
         boxout-button:
             heading: 'Download logo files'
-            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Justo, dui pharetra sed ullamcorper id. Iaculis interdum eget ultrices imperdiet.'
+            content: 'Our logo suite is available to download from the resources section and contains all the files you''ll need to start working with it.'
             buttontext: 'Go to resources'
+            buttontype: '1'
             buttonurl: null
-            buttonlinkinternal: /home
+            buttonlinkinternal: /resources/logo-suite
+            filedownload: null
 opnparentpage: /design
 ---
 

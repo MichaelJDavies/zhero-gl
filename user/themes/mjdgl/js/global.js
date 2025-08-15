@@ -74,7 +74,53 @@ function inity() {
 		    .setClassToggle(item, 'opn-item-active')
 		    .addTo(controller);
 		  });
-		
+
+
+
+		//~~~~~~~~~~~~~~~~~~
+		//   Copy link
+	    //~~~~~~~~~~~~~~~~~~
+
+
+		    // Attach event listener to all .copy-link elements
+			  document.querySelectorAll('.copy-link').forEach(element => {
+			    element.addEventListener('click', () => {
+			      const anchor = element.getAttribute('data-anchor');
+			      const fullUrl = `${window.location.origin}${window.location.pathname}#${anchor}`;
+
+			      // Copy to clipboard
+			      navigator.clipboard.writeText(fullUrl)
+			        .then(() => {
+				        showTooltip(element, "Link copied!", "success");
+				      })
+				      .catch(() => {
+				        showTooltip(element, "Failed to copy", "error");
+				      });
+			    });
+			  });
+
+
+			function showTooltip(target, message, type = 'success') {
+			  // Create tooltip element
+			  const tooltip = document.createElement('div');
+			  tooltip.className = `copy-tooltip ${type}`;
+			  tooltip.textContent = message;
+
+			  // Position relative to the target
+			  target.style.position = 'relative';
+			  target.appendChild(tooltip);
+
+			  // Force reflow so the animation works
+			  void tooltip.offsetWidth;
+			  tooltip.classList.add('visible');
+
+			  // Remove after 5 seconds
+			  setTimeout(() => {
+			    tooltip.classList.remove('visible');
+			    setTimeout(() => tooltip.remove(), 300); // wait for fade-out
+			  }, 3000);
+			}
+					
 
 
 		// //~~~~~~~~~~~~~~~~~~

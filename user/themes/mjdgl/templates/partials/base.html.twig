@@ -29,9 +29,9 @@
 
 
     <meta property="og:title" content="{% if header.title != "Home" %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}"/>
-    <meta property="og:description" content="I'm a graphic designer and creative brand strategist. I help positive causes clarify their message and communicate visually."/>
+    <meta property="og:description" content="Sustainable supply chains made easy."/>
     <meta property="og:type" content="website"/>
-    <meta property="og:image" content="{{ url('theme://images/og/mjd-og.jpg') }}"/>
+    <meta property="og:image" content="{{ url('theme://images/og/Zhero-OG_min.webp') }}"/>
 
     {% block stylesheets %}
         {# {% do assets.addCss('https://unpkg.com/purecss@1.0.0/build/pure-min.css', 100) %} #}
@@ -108,6 +108,8 @@
     <div class="right">
         <nav>
         {# Links #}
+
+         <a class="logo-mobile" href="/">{% include 'svgs/Zhero-Primary.svg' %}</a>
            <div class="links-container">
 
                 <div class="links" id="links">

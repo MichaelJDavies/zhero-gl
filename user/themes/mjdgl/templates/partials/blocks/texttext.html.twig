@@ -1,0 +1,21 @@
+{# <div class="section-head" data-trigger="{{ content.heading|lower|replace({' ': '-'}) }}" id="{{ content.heading|lower|replace({' ': '-'}) }}"> #}
+	
+{# 	{% if content.align %}
+		{% set alignment = 'rightblock' %}
+	{% else %}
+		{% set alignment = 'lefttblock' %}
+	{% endif %} #}
+
+
+
+	<div class="inner {{ alignment }}">
+		<div class="content-block">
+			{{ content.col1|markdown }}			
+		</div>
+		<div class="content-block">
+			{{ content.col2|markdown }}			
+		</div>
+
+
+	</div>
+{# </div> #}

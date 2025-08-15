@@ -186,6 +186,23 @@ form:
                             0: Right
                         validate:
                             type: bool
+                  .texttext:
+                    type: section
+                    label: 2 column text
+                    fields:
+                      .col1:
+                        type: editor
+                        label: Content
+                      .col2:
+                        type: editor
+                        label: Content
+                  .pullout:
+                    type: section
+                    label: Pull out
+                    fields:
+                      .text1:
+                        type: editor
+                        label: Content
                   .text:
                       type: editor
                       label: Content
@@ -233,6 +250,31 @@ form:
                                   0: Cross
                               validate:
                                   type: bool
+                  .text-image-card-list:
+                      type: section
+                      label: Text and image cards
+                      fields:
+                        .columns:
+                          type: select
+                          classes: fancy
+                          label: 'Number of columns'
+                          help: 'Pages in a list will render using this order unless it is overridden'
+                          options:
+                              2: '2'
+                              3: '3'
+                              4: '4'
+                        .cards:
+                          type: list
+                          style: vertical
+                          label: 3 Column Check Card List
+                          fields:
+                            .image:
+                              type: filepicker
+                              folder: 'self@'
+                              preview_images: true
+                              label: Image
+                            .content:
+                              type: editor
                   .swatch-cards:
                       type: section
                       label: Swatch cards
@@ -312,6 +354,14 @@ form:
                       .buttontext:
                         type: text
                         label: Button text
+                      .buttontype:
+                        type: toggle
+                        label: Filter our featured pages?
+                        default: 2
+                        options:
+                            2: URL
+                            1: Page
+                            0: Download
                       .buttonurl:
                         type: text
                         label: Button URL
@@ -325,6 +375,11 @@ form:
                         show_modular: false
                         show_root: false
                         help: PLUGIN_ADMIN.HOME_PAGE_HELP
+                      .filedownload:
+                        type: filepicker
+                        folder: 'self@'
+                        preview_images: true
+                        label: File download
 
                   .featuredcardlist:
                     type: section

@@ -1,11 +1,23 @@
+{% if content.buttontype == 0 %}
+	{% set buttonlink = page.media[content.filedownload].url  %}
+	{% set downloadattribute = "download" %}
+{% elseif content.buttontype == 1 %}
+	{% set buttonlink = content.buttonlinkinternal  %}
+	{% set downloadattribute = "" %}
+{% else %}
+	{% set buttonlink = content.buttonurl  %}
+	{% set downloadattribute = "" %}
+{% endif %}
+
 <div class="inner">
+	<h3>{{ content.heading }}</h3>
 	<div class="content-block">
-		<h3>{{ content.heading }}</h3>
-		<div>{{ content.content|markdown }}</div>	
-	</div>
-	<button>
+		<div class="textcontent">{{ content.content|markdown }}</div>
+	<a class="btn" href="{{ buttonlink }}" {{ downloadattribute }}>
+		<span class="buttoninner"></span>
 		{{ content.buttontext }}
-	</button>
+	</a>
+	</div>
 	
 </div>
 

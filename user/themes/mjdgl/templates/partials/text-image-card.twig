@@ -1,0 +1,15 @@
+<div class="check-card">
+
+
+	<picture>
+	    <source media="(min-width:650px)" srcset="{{ page.media[card.image].url }}">
+		<img src="{{ page.media[card.image].url }}" alt="" height="auto" width="100%" loading="lazy" >
+	</picture>
+
+	<div class="check-card-content">
+	        <div>{{ card.content|markdown }}</div>
+			
+
+	</div>
+
+</div>

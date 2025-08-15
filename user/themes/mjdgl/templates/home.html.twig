@@ -29,9 +29,9 @@
 
 
     <meta property="og:title" content="{% if header.title != "Home" %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}"/>
-    <meta property="og:description" content="I'm a graphic designer and creative brand strategist. I help positive causes clarify their message and communicate visually."/>
+    <meta property="og:description" content="Sustainable supply chains made easy."/>
     <meta property="og:type" content="website"/>
-    <meta property="og:image" content="{{ url('theme://images/og/mjd-og.jpg') }}"/>
+    <meta property="og:image" content="{{ url('theme://images/og/Zhero-OG_min.webp') }}"/>
 
     {% block stylesheets %}
         {# {% do assets.addCss('https://unpkg.com/purecss@1.0.0/build/pure-min.css', 100) %} #}
@@ -82,112 +82,189 @@
 <body class="{{ page.header.body_classes }}">
 
 
-{% block header %}
 
-    {#  Navigation  #}
-    <nav class="navhead">
 
-        <div class="navinner wrapper">
 
-            <div class="logo">
 
-                {# Wordmark #}
-                <a href="/" id="wordmark" class="wordmark">Zhero</a>
+
+<div class="home-container">
+
+
+        <nav>
+
+            <div class="inner">
+
+                <a class="logo-mobile" href="/">{% include 'svgs/Zhero-Primary.svg' %}</a>
+               <div class="links-container">
+
+                    <div class="links" id="links">
+                        {% set coll = page.collection({
+                          items: '@root.pages',
+                          order: { by: 'default', dir: 'asc' }
+                        }) %}
+
+
+                        {% for p in coll if p.route != '/' %}
+                            {% set is_active = p.active or p.activeChild %}
+                          <a class="{{ is_active ? 'active' : '' }}" href="{{ p.url|e }}">{{ p.menu|default(p.title)|e }}</a>
+                        {% endfor %}
+                        <a href="/search">{% include 'svgs/Search.svg' %}</a>
+                    </div>
+                </div>
+                <div class="mobile-container">
+                    <a class="message" id="mobile" onclick="navmob(this)" href="#">
+                        {% include 'svgs/hamburger.html.twig' %}
+                    </a>
+                </div>     
                 
             </div>
-
-            {# Links #}
-           <div class="links-container">
-
-                <div class="links" id="links">
-                	{% set coll = page.collection({
-					  items: '@root.pages',
-					  order: { by: 'default', dir: 'asc' }
-					}) %}
+       
+        </nav>
 
 
-					{% for p in coll if p.route != '/' %}
-					  <a href="{{ p.url|e }}">{{ p.menu|default(p.title)|e }}</a>
-					{% endfor %}
+
+                <div class="home-hero">
+                    {# <img class="imgleft" src="{{ url('theme://images/home/imgleft_min.webp') }}" alt=""> #}
+                    <div class="imgleft"></div>
+                    <div class="inner">
+                        <div class="overline">Our brand</div>
+                    <h1>How to be <span class="hero-underline">Zhero</span></h1>
+                    </div>
+                    <div class="imgright"></div>
+                    {# <img class="imgright" src="" alt=""> #}
                 </div>
+                <div class="home-standfirst">
+                    <div class="inner">
+                        <div class="content">
+                            <h3>Welcome to our brand guide</h3>
+                    <p>This is where you’ll find everything you need to keep our brand looking sharp and sounding like us... real, down-to-earth, and full of purpose. Whether you're writing, designing, or dreaming something up, this guide is here to help you carry the Zhero spirit into everything you do.</p>
+                        </div>
+                        
+                    </div>
+                </div>
+
+
+            <div class="home">  
+                <div class="section-head">
+                    <a href="/writing" class="heading">
+                        <h2>Writing</h2>
+                        <div>
+                            {% include 'svgs/rightarrow.svg' %} 
+                        </div>
+                    </a>
+                    <div class="section-description">
+                        <p>Everyday we’re writing a new chapter of the Zhero story. Our writing guides capture the core principles of who we are and how we communicate.</p>   
+                    </div>
+                </div>
+
+
+                {% set parent_page = page.find('/writing') %}
+
+                {% set children = parent_page.children.visible %}
+
+                <div class="blocks-cardlist">
+                {% for p in children %}
+                  {% include 'partials/page-card.twig' %}
+                {% endfor %} 
+                </div>
+
+                <div class="section-head">
+                    <a href="/design" class="heading">
+                        <h2>Design</h2>
+                        <div>
+                            {% include 'svgs/rightarrow.svg' %} 
+                        </div>
+                    </a>
+                    <div class="section-description">
+                        <p>Our visual identity is how we communicate our brand essence in a visual way. Here you’ll find guides for how to </p>   
+                    </div>
+                </div>
+
+
+                {% set parent_page = page.find('/design') %}
+
+                {% set children = parent_page.children.visible %}
+
+                <div class="blocks-cardlist">
+                {% for p in children %}
+                  {% include 'partials/page-card.twig' %}
+                {% endfor %} 
+                </div>
+
+                <div class="section-head">
+                    <a href="/design" class="heading">
+                        <h2>Resources</h2>
+                        <div>
+                            {% include 'svgs/rightarrow.svg' %} 
+                        </div>
+                    </a>
+                    <div class="section-description">
+                        <p>Download everything you need to start working with the Zhero brand. From our logo suite to our brushworks, everything you need can be found here.</p>   
+                    </div>
+                </div>
+
+
+                {% set parent_page = page.find('/resources') %}
+
+                {% set children = parent_page.children.visible %}
+
+                <div class="blocks-cardlist">
+                {% for p in children %}
+                  {% include 'partials/page-card.twig' %}
+                {% endfor %} 
+                </div>
+            
             </div>
 
-            <div class="mobile-container">
-                <a class="message" id="mobile" onclick="navmob(this)" href="#">
-                    {% include 'svgs/hamburger.html.twig' %}
-                </a>
-            </div>
-            
-        </div>
-    </nav>
+            <section id="footer">
+                <hr />
+                <div class="footer-content">
+                    <div>© Zhero 2025</div>
+                    <div>Design: <a href="https://mjd.studio">MJD Studio</a></div>
+                </div>
+
+            </section>
+
+
+</div>
+
+           
+
+
+
+        
+
 
     {# Mobile Navigation #}
     <section id="mobNav">
         <div class="moblinks">
+            {% set coll = page.collection({
+                      items: '@root.pages',
+                      order: { by: 'default', dir: 'asc' }
+                    }) %}
 
-            <a onclick="navmobClose(this)" href="/">Home</a>
+
+                    {% for p in coll %}
+                        {% set is_active = p.active or p.activeChild %}
+                      <a onclick="navmobClose(this)" class="{{ is_active ? 'active' : '' }}" href="{{ p.url|e }}">{{ p.menu|default(p.title)|e }}</a>
+                    {% endfor %}
+           {#  <a onclick="navmobClose(this)" href="/">Home</a>
             <a onclick="navmobClose(this)" href="/projects">Work</a>
             <a onclick="navmobClose(this)" href="/play">Play</a>
-            <a onclick="navmobClose(this)" href="/about">About</a>
+            <a onclick="navmobClose(this)" href="/about">About</a> #}
         </div>
     </section>
-
+    
     <div id="overlay">
         
     </div>
 
 
 
-    
-
-{% endblock %}
-
-
-{% block body %}
-    <div class="blackbg">
-    <main id="swup" class="transition-fade">
-        
-{% block content %}
-
-
-{# Hero Section #}
-
-<h1> This is the homepage </h1>
-
-{# Project Cards #}
-
-{% for piece in header.work.items %}
-
-	{% set projectname = piece.piece %}
-	{% set options = { items: {'@page.self': projectname }, 'limit': 3 } %}
-	{% set portfolio = page.collection(options) %}
-
-	{% for p in portfolio %}
-		{% include 'partials/projectcard.html.twig' %}
-	{% endfor %}
-
-
-{% endfor %}
 
 
 
-{% endblock %}
-    </main>
-    </div>
-{% endblock %}
 
-
-
-{% block footer %}
-
-<section id="footer">
-
-</section>
-
-{# Custom Cursor  #}
-{# <img src="user/themes/michael-j-davies/images/icons/arrow.svg" id="plus" /> #}
-
-{% endblock %}
 
 {% block bottom %}
     {{ assets.js('bottom')|raw }}

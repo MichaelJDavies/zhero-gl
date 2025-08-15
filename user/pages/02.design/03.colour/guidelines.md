@@ -2,9 +2,9 @@
 title: Colour
 sitemap:
     lastmod: '30-07-2025 17:23'
-thumbnail: thumb-logo.jpg
+thumbnail: thumb-colour_min.webp
 featured: false
-media_order: 'thumb-logo.jpg,colour-01_min.webp,colour-02_min.webp,colour-03_min.webp,colour-04_min.webp,colour-05_min.webp,colour-06_min.webp,colour-07_min.webp,colour-08_min.webp,colour-09_min.webp,colour-10_min.webp,colour-11_min.webp,colour-12_min.webp'
+media_order: 'thumb-logo.jpg,colour-01_min.webp,colour-02_min.webp,colour-03_min.webp,colour-04_min.webp,colour-05_min.webp,colour-06_min.webp,colour-07_min.webp,colour-08_min.webp,colour-09_min.webp,colour-10_min.webp,colour-11_min.webp,colour-12_min.webp,thumb-colour_min.webp'
 opnparentpage: /design
 description: 'Our colours do more than just look good, they help us stand out and stay true to what we care about. We use a vibrant mix of greens to shift across moods and messages, backed by a calm set of neutrals and a few well-placed accents. It’s a palette with purpose.'
 blocks:
@@ -39,7 +39,7 @@ blocks:
     d2d445bd-46bc-4d59-b7fc-09d0c60ce8f1:
         sectionhead:
             heading: 'Neutral palette'
-            content: 'Our neutrals are the calm in the chaos. They help us break up content, give designs breathing room, and keep things feeling clean and considered. Think of them as the quiet support crew behind the scenes.'
+            content: 'Our neutral palette help us break up content, give designs breathing room, and keep things feeling clean and considered. Neutral/10 is our default colour for small text.'
     240551f9-a568-48c9-9a02-594307c15a14:
         swatch-cards:
             columns: '4'
@@ -90,7 +90,7 @@ blocks:
     4c9dbc6c-e2df-4390-a836-aec9a1e965d9:
         sectionhead:
             heading: 'Colour combinations'
-            content: "~~Lorem ipsum dolor sit amet, consectetur adipiscing elit. Justo, dui pharetra sed ullamcorper id. Iaculis interdum eget ultrices imperdiet.\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Justo, dui pharetra sed ullamcorper id. Iaculis interdum eget ultrices imperdiet.~~"
+            content: 'Some colours play well together. Others not so much. Here are some examples of combinations that work (and ones that don’t). It’s not the full rulebook, but it’s a solid starting point. Whatever you’re creating, always check for strong contrast and accessibility. If people can’t read it, it’s not doing its job.'
     c9b73ff9-eb6c-46ee-8f0f-e0d9efe7a1de:
         sectionsubhead:
             content: 'Good combinations'
