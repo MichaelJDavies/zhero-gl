@@ -22,7 +22,7 @@ blocks:
             image: type-03_min.webp
             align: false
     17872326-26e7-4dc0-aa49-e659f54a0bce:
-        image: type-04_min.webp
+        image: type-18_min.png
     8d57ec9f-3daf-4a66-bbeb-f9aae075ae6a:
         sectionhead:
             heading: 'Using our typefaces'
@@ -115,7 +115,7 @@ blocks:
 featured: false
 description: 'Typography plays a big role in how our brand feels. It’s not just about looking good, it’s about sounding human. Our primary typeface does the everyday heavy lifting: clear, confident, and easy to read. Our secondary, hand-written font adds a little heart, a personal touch we use sparingly to bring warmth and personality when it counts.'
 thumbnail: thumb-type_min.webp
-media_order: 'thumb-logo.jpg,type-01_min.webp,type-02_min.webp,type-03_min.webp,type-04_min.webp,type-06_min.webp,type-07_min.webp,type-08_min.webp,type-09_min.webp,type-10_min.webp,type-11_min.webp,type-12_min.webp,type-13_min.webp,type-14_min.webp,type-15_min.webp,thumb-type_min.webp,type-16_min.webp,type-17_min.webp,type-05_min.webp'
+media_order: 'thumb-logo.jpg,type-01_min.webp,type-02_min.webp,type-03_min.webp,type-04_min.webp,type-06_min.webp,type-07_min.webp,type-08_min.webp,type-09_min.webp,type-10_min.webp,type-11_min.webp,type-12_min.webp,type-13_min.webp,type-14_min.webp,type-15_min.webp,thumb-type_min.webp,type-16_min.webp,type-17_min.webp,type-05_min.webp,type-18_min.png'
 opnparentpage: /design
 ---
 

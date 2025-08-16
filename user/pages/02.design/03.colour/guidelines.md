@@ -19,23 +19,23 @@ blocks:
                 -
                     colour: '#20381E'
                     name: Primary/10
-                    rgb: null
-                    cmyk: null
+                    rgb: '32 56 30'
+                    cmyk: '82 51 89 63 '
                 -
                     colour: '#0B5507'
                     name: Primary/20
-                    rgb: null
-                    cmyk: null
+                    rgb: '11 85 7'
+                    cmyk: '88 39 100 40'
                 -
                     colour: '#1F9F19'
                     name: Primary/40
-                    rgb: null
-                    cmyk: null
+                    rgb: '31 159 25'
+                    cmyk: '80 6 100 0'
                 -
                     colour: '#90E48B'
                     name: Primary/70
-                    rgb: null
-                    cmyk: null
+                    rgb: '144 228 139'
+                    cmyk: '47 0 60 0'
     d2d445bd-46bc-4d59-b7fc-09d0c60ce8f1:
         sectionhead:
             heading: 'Neutral palette'
@@ -47,23 +47,23 @@ blocks:
                 -
                     colour: '#181511'
                     name: Neutral/10
-                    rgb: null
-                    cmyk: null
+                    rgb: '24 21 17'
+                    cmyk: '74 68 65 87'
                 -
                     colour: '#5A5347'
                     name: Neutral/30
-                    rgb: null
-                    cmyk: null
+                    rgb: '90 83 71'
+                    cmyk: '55 49 58 47'
                 -
                     colour: '#F3EBDF'
                     name: Neutral/90
-                    rgb: null
-                    cmyk: null
+                    rgb: '243 235 223'
+                    cmyk: '6 8 14 0'
                 -
                     colour: '#FAF6F0'
                     name: Neutral/95
-                    rgb: null
-                    cmyk: null
+                    rgb: '250 246 240'
+                    cmyk: '2 4 7 0'
     cc4a11e3-1cdf-493d-8851-0541e24782d5:
         sectionhead:
             heading: 'Accent colours'
@@ -75,18 +75,18 @@ blocks:
                 -
                     colour: '#B0EEFF'
                     name: Accent/1
-                    rgb: null
-                    cmyk: null
+                    rgb: '176 238 255'
+                    cmyk: '33 0 4 0'
                 -
                     colour: '#FDC4FF'
                     name: Accent/2
-                    rgb: null
-                    cmyk: null
+                    rgb: '253 196 255'
+                    cmyk: '8 29 0 0 '
                 -
                     colour: '#E1F56C'
                     name: Accent/3
-                    rgb: null
-                    cmyk: null
+                    rgb: '225 245 108'
+                    cmyk: '20 0 68 0'
     4c9dbc6c-e2df-4390-a836-aec9a1e965d9:
         sectionhead:
             heading: 'Colour combinations'
