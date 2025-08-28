@@ -36,7 +36,7 @@ blocks:
     879ee04d-83d7-48c2-83f0-e9607dcef13f:
         page_group_intro:
             heading: Design
-            content: 'Our visual identity is how we communicate our brand essence in a visual way. Here you’ll find guides for how to'
+            content: 'Our visual identity is how we communicate our brand essence in a visual way. Here you’ll find guides for how each of our identity components comes together to create impactful visual communications.'
             page_link: /design
     6ab0c219-b904-4ce0-a241-7030f256b44d:
         page_card_list:
