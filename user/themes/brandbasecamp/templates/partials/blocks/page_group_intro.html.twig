@@ -1,0 +1,12 @@
+
+	<a href="{{ content.page_link }}" class="heading">
+		<h2>{{ content.heading }}</h2>
+		<div class="arrow">
+            {% include 'svgs/rightarrow.svg' %} 
+        </div>
+	</a>
+	<div class="section-description columns-2">
+		<div>
+			<p>{{ content.content|markdown }}</p>	
+		</div>
+	</div>

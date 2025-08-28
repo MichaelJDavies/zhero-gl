@@ -5,9 +5,10 @@ sitemap:
     lastmod: '31-07-2025 17:38'
 opnparentpage: /resources
 blocks:
-    03eb1480-2725-40e8-8ba0-18a962d45c92:
-        cardlist:
-            parentpage: /resources
-            featuredfilter: false
+    4347d1aa-8bf0-47a8-bd94-395635109ac5:
+        page_card_list:
+            parent_page: /resources
+            featured_filter: false
+require_login: false
 ---
 

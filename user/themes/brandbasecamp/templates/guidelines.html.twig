@@ -1,0 +1,96 @@
+{% extends 'partials/base.html.twig' %}
+
+
+
+
+{% block onpagenav %}
+
+
+
+
+{% set opn_nav_route = page.header.opnparentpage %}
+
+{% set parent_page = page.find(opn_nav_route) %}
+
+{# Check if the parent page exists and if the user has access #}
+{% if parent_page and (not parent_page.header.locked or (grav.user and grav.user.authorized('site.login'))) %}
+
+    {% set children = parent_page.children.visible %}
+{#   {% if filter_featured %}
+    {% set children = children|filter(p => p.header.featured == false) %}
+  {% endif %} #}
+
+    {% for p in children %}
+        {% set is_active = p.active or p.activeChild %}
+      <li class="{{ is_active ? 'opn-active' : '' }}"><a href="{{ p.url }}">{{ p.menu|default(p.title) }}{% if p.header.access is defined and p.header.access['site.login'] is defined and p.header.access['site.login'] and not grav.user.authenticated %}{% include 'svgs/lock.svg' %}{% endif %}</a></li>
+       {% if p.active %}
+        {# <span class="current">You're here</span> #}
+        {% set blocks = (page.header.blocks is null ? [] : page.header.blocks | filter(block => (block | keys | first) == 'section_head')) %}
+
+        {% if blocks %}
+
+        <ul class="sectionlist">
+            {% for block_element in blocks %}
+                {% set block_type = block_element | keys | first %}
+
+                <li class="onpagenav-item"><a href="#{{ block_element[block_type].heading|lower|replace({' ': '-'}) }}">{{ block_element[block_type].heading }}</a></li>
+            
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+      {% endif %}
+
+    {% endfor %}
+
+{# {% else %}
+  <p>Parent page "{{ opn_nav_route }}" not found.</p> #}
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
+
+
+{% block content %}
+
+<section class="page-intro">
+	<h1> {{ page.title }}</h1>
+    <div class="page-description columns-2">
+        <p>{{ page.header.description }}</p>        
+    </div>
+
+</section>
+
+{# Page content blocks #}
+
+{% set blocks = (page.header.blocks is null ? [] : page.header.blocks) %}
+
+{% for block_element in blocks %}
+    {% set block_type = block_element | keys | first %}
+
+    <section class="blocks-{{block_type}} {{ block_type == 'image_full' ? 'breakout' }}">
+        
+    {% set block_content = block_element[block_type] %}
+
+        {% include 'partials/blocks/' ~ block_type ~ '.html.twig' ignore missing with {content: block_content} %}
+
+    </section>
+
+{% endfor %}
+
+{% endblock %}
+
+
+
+

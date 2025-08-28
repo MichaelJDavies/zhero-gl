@@ -3,7 +3,7 @@
 {% set name = field.name %}
 {% set list_classes = (field.classes is defined ? field.classes : '') ~ ' blocks__list' %}
 
-<ul class="{{ list_classes }}" data-block-element="list">
+<ul class="{{ list_classes }}" id="my-list" data-block-element="list">
     {% if field.fields %}
         {% for key, val in value %}
             {% for block_field_name, block_field_Value in val %}

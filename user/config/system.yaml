@@ -35,7 +35,7 @@ pages:
   type: regular
   dirs:
     - 'page://'
-  theme: mjdgl
+  theme: brandbasecamp
   order:
     by: default
     dir: asc

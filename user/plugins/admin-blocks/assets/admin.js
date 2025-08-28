@@ -44,19 +44,111 @@
       _afterChangeList($list);
     }
 
+    // const _move = function($list, event){
+    //   let button = $(event.currentTarget);
+    //   let $item = $(button.closest('li'));
+
+    //   const direction = button.attr('data-block-direction');
+
+    //   if(direction == 'up'){
+    //     const prev = $item.prev();
+    //     $item.insertBefore(prev);
+    //   } else {
+    //     const next = $item.next();
+    //     $item.insertAfter(next);
+    //   }
+
+    //   _afterChangeList($list);
+    // }
+
+
+function enableDragAndDrop($list, handleSelector) {
+  // Initially disable dragging on <li>
+  $list.find('li').attr('draggable', false);
+
+  // Enable drag only when handle is pressed
+  $list.on('mousedown', handleSelector, function (e) {
+    const $item = $(this).closest('li');
+    $item.attr('draggable', true);
+
+    // When drag starts
+    $item.on('dragstart', function (e2) {
+      $(this).addClass('dragging');
+      e2.originalEvent.dataTransfer.setData('text/plain', '');
+    });
+
+    // Reset draggable when drag ends
+    $item.on('dragend', function () {
+      $(this).removeClass('dragging');
+      $(this).attr('draggable', false); // disable again
+    });
+  });
+
+  // Handle drag over items
+  $list.on('dragover', 'li', function (e) {
+    e.preventDefault(); // allow drop
+    const $dragging = $list.find('.dragging');
+    const $target = $(this);
+    if ($dragging[0] === $target[0]) return;
+
+    const offset = e.originalEvent.clientY - $target.offset().top;
+    if (offset > $target.outerHeight() / 2) {
+      $target.after($dragging);
+    } else {
+      $target.before($dragging);
+    }
+  });
+
+  // Handle drop (cleanup + callback)
+  $list.on('drop', function () {
+    const $dragging = $list.find('.dragging');
+    $dragging.removeClass('dragging').attr('draggable', false);
+    _afterChangeList($list);
+  });
+}
+
+enableDragAndDrop($('#my-list'), '.drag-handle');
+
+
     const _move = function($list, event){
       let button = $(event.currentTarget);
       let $item = $(button.closest('li'));
 
+      // --- FLIP Step 1: record current position ---
+      const firstRect = $item[0].getBoundingClientRect();
+
       const direction = button.attr('data-block-direction');
 
-      if(direction == 'up'){
+      // --- Reorder the item in the DOM ---
+      if(direction === 'up'){
         const prev = $item.prev();
-        $item.insertBefore(prev);
+        if(prev.length) $item.insertBefore(prev);
       } else {
         const next = $item.next();
-        $item.insertAfter(next);
+        if(next.length) $item.insertAfter(next);
       }
+
+      // --- FLIP Step 2: record new position ---
+      const lastRect = $item[0].getBoundingClientRect();
+
+      // --- FLIP Step 3: invert (move it back visually) ---
+      const invertY = firstRect.top - lastRect.top;
+      $item.css({
+        transform: `translateY(${invertY}px)`
+      });
+
+      // --- FLIP Step 4: play (animate to new spot) ---
+      requestAnimationFrame(() => {
+        $item.css({
+          transition: 'transform 300ms ease',
+          transform: 'translateY(0)'
+        });
+      });
+
+      // --- Cleanup after animation ---
+      $item.one('transitionend', () => {
+        $item.css({ transition: '', transform: '' });
+      });
 
       _afterChangeList($list);
     }

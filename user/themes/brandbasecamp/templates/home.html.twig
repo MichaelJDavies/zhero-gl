@@ -1,0 +1,27 @@
+{% extends 'partials/base.html.twig' %}
+
+
+
+{% block content %}
+
+
+{# Page content blocks #}
+
+
+
+{% set blocks = (page.header.blocks is null ? [] : page.header.blocks) %}
+
+{% for block_element in blocks %}
+    {% set block_type = block_element | keys | first %}
+
+    <section class="blocks-{{block_type}}">
+        
+    {% set block_content = block_element[block_type] %}
+
+        {% include 'partials/blocks/' ~ block_type ~ '.html.twig' ignore missing with {content: block_content} %}
+
+    </section>
+
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,28 @@
+<div class="check-card">
+
+	{% if card.image %}
+	{# <picture>
+	    <source media="(min-width:650px)" srcset="{{ page.media[card.image].url }}">
+		<img src="{{ page.media[card.image].url }}" alt="" height="auto" width="100%" loading="lazy" >
+	</picture> #}
+
+	{% set image = page.media[card.image] %}
+	{{ img.responsive_image(image, card.alt_text) }}
+
+	{% endif %}
+
+	<div class="card-content">
+
+			{% if card.check_cross == 2 %}
+	          {% include 'svgs/icon-check.svg' %} 
+	        {% elseif card.check_cross == 1 %}
+	          {% include 'svgs/icon-cross.svg' %} 
+	        {% endif %}
+
+
+	        <div>{{ card.content|markdown }}</div>
+			
+
+	</div>
+
+</div>

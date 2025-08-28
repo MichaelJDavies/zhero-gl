@@ -113,7 +113,7 @@ class TwigExtension extends AbstractExtension
             $field['plain_name'] = $plainName;
             $name = $parent ? $parent . $name : $plainName;
         } elseif (isset($options['key'])) {
-            $name = str_replace('*', (string)$options['key'], $name);
+            $name = str_replace('*', $options['key'], $name);
         }
 
         unset($options['key']);
@@ -143,7 +143,7 @@ class TwigExtension extends AbstractExtension
      * @param string|null $default
      * @return string[]
      */
-    public function includeFormField(string $type, $layouts = null, string $default = null): array
+    public function includeFormField(string $type, $layouts = null, ?string $default = null): array
     {
         $list = [];
         foreach ((array)$layouts as $layout) {

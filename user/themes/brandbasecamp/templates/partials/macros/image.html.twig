@@ -1,0 +1,17 @@
+{% macro responsive_image(image, alt_text='', max_width=1340) %}
+    {% if image %}
+        {# Determine retina width (2x) but never upscale smaller images #}
+        {% set retina_width = image.width > max_width * 2 ? max_width * 2 : image.width %}
+
+        <img
+            src="{{ image.resize(max_width).url }}"
+            srcset="
+                {{ image.resize(400).url }} 400w,
+                {{ image.resize(800).url }} 800w,
+                {{ image.resize(max_width).url }} {{ max_width }}w,
+                {{ image.resize(retina_width).url }} 2x
+            "
+            sizes="(max-width: 600px) 400px, (max-width: 1000px) 800px, {{ max_width }}px"
+            alt="{{ alt_text ?: image.filename }}">
+    {% endif %}
+{% endmacro %}

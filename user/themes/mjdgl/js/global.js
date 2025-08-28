@@ -31,6 +31,10 @@ var onloadCallback = function() {}; //for reCaptcha
 
 function inity() {
 
+		checkLogin();
+		// console.log('hello');
+
+		// alert("Hello! I am an alert box!!");
 		//~~~~~~~
 		// Page content handling
 		//~~~~~~~
@@ -246,6 +250,33 @@ function unload() {
 
 
 
+
+
+
+function checkLogin() {
+	console.log('checkLogin');
+    const container = document.getElementById('swup');
+    if (!container) return;
+
+    const requireLogin = container.dataset.requireLogin === 'true';
+    const loggedIn = container.dataset.loggedIn === 'true';
+
+    // console.log(requireLogin);
+    // console.log(loggedIn);
+
+
+    if (requireLogin && !loggedIn) {
+        window.location.href = '/login';
+    }
+}
+
+// // Regular page load
+// document.addEventListener('DOMContentLoaded', checkLogin);
+
+// // swup page replacement
+// if (window.swup) {
+//     document.addEventListener('swup:contentReplaced', checkLogin);
+// }
 
 
 

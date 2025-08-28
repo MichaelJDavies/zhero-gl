@@ -16,6 +16,8 @@ avatar:
     size: 852953
     path: user/accounts/avatars/dwf72hdcsomzots.jpg
 access:
+  site:
+    login: true
   admin:
     login: true
     super: true

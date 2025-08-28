@@ -10,15 +10,18 @@
         <div class="blocks__block__headline">
             <button label="{{ "PLUGIN_BLOCKS.ACTION_EXPAND"|t }}" data-hint="{{ "PLUGIN_BLOCKS.ACTION_EXPAND"|t }}" class="blocks__block__button__expand hint--bottom" type='button' data-block-action="toggle"><i class="fa fa-caret-right"></i></button>
             <button label="{{ "PLUGIN_BLOCKS.ACTION_COLLAPSE"|t }}" data-hint="{{ "PLUGIN_BLOCKS.ACTION_COLLAPSE"|t }}" class="blocks__block__button__collapse hint--bottom" type='button' data-block-action="toggle"><i class="fa fa-caret-down"></i></button>
-            <span data-block-action="toggle">{{ label }}</span>
+            <span data-block-action="toggle" style="font-weight: 600;">{{ label }}</span>
         </div>
 
         <div class="blocks__block__bar">
             {% block bar %}
             <button type='button' class="hint--bottom" label="{{ "PLUGIN_BLOCKS.ACTION_ADD"|t }}" data-hint="{{ "PLUGIN_BLOCKS.ACTION_ADD"|t }}" data-block-action="open-selection" data-block-add-position="{{ key }}"><i class="fa fa-plus"></i></button>
-            <button type='button' class="hint--bottom" label="{{ "PLUGIN_BLOCKS.ACTION_REMOVE"|t }}" data-hint="{{ "PLUGIN_BLOCKS.ACTION_REMOVE"|t }}" data-block-action="open-remove-dialog"><i class="fa fa-trash-o"></i>
-            <button type='button' class="hint--bottom" label="{{ "PLUGIN_BLOCKS.ACTION_UP"|t }}" data-hint="{{ "PLUGIN_BLOCKS.ACTION_UP"|t }}" data-block-action="move" data-block-direction="up"><i class="fa fa-caret-down"></i></button>
+
+            <button type='button' class="hint--bottom" label="{{ "PLUGIN_BLOCKS.ACTION_UP"|t }}" data-hint="{{ "PLUGIN_BLOCKS.ACTION_UP"|t }}" data-block-action="move" data-block-direction="up"><i class="fa fa-caret-up"></i></button>
+            <button type='button' class="hint--bottom drag-handle" label="drag" data-hint="drag" data-hint="{{ "PLUGIN_BLOCKS.ACTION_DOWN"|t }}" data-block-action="move" data-block-direction="down"><i class="fa fa-bars"></i></button>       
             <button type='button' class="hint--bottom" label="{{ "PLUGIN_BLOCKS.ACTION_DOWN"|t }}" data-hint="{{ "PLUGIN_BLOCKS.ACTION_DOWN"|t }}" data-block-action="move" data-block-direction="down"><i class="fa fa-caret-down"></i></button>  
+            <button type='button' class="hint--bottom" label="{{ "PLUGIN_BLOCKS.ACTION_REMOVE"|t }}" data-hint="{{ "PLUGIN_BLOCKS.ACTION_REMOVE"|t }}" data-block-action="open-remove-dialog"><i class="fa fa-trash-o"></i>
+
             {% endblock %}
         </div>
     </div>

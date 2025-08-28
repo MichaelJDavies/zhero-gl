@@ -1,0 +1,15 @@
+{% if block_element['text_image_cards'] is defined %}
+  
+  {% set card_data = block_element['text_image_cards'] %}
+  {% set column = card_data.columns %}
+
+
+
+<div class="columns-{{ column }}">
+
+  {% for card in card_data.cards %}
+    {% include 'partials/cards/check_card.twig' with { column: column, card: card } %}
+  {% endfor %}
+
+</div>  
+{% endif %}

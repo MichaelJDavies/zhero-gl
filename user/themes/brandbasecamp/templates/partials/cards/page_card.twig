@@ -1,0 +1,15 @@
+
+{# Portfolio item #}
+<a href="{{ p.url }}" class="page-card" data-aos="fade-up" >
+	<div class="thumbnail">
+		{% set image = p.media[p.header.thumbnail] %}
+		{{ img.responsive_image(image, p.title) }}
+	</div>
+	<div class="card-content">
+		<div class="headline">
+			<h3>{{ p.title }}</h3>
+			{# {% include 'partials/arrow.html.twig' %} #}
+		</div>
+
+	</div>
+</a>

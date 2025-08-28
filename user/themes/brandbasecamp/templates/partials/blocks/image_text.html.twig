@@ -1,0 +1,23 @@
+<div class="columns-2">
+
+	{% if not content.align %}
+		{# content.align is set to 0 when the image is on the left right, so render the text first #}
+		<div class="markdown">
+			{{ content.content|markdown }}			
+		</div>
+		
+	{% endif %}
+
+	{% set image = page.media[content.image] %}
+	{{ img.responsive_image(image, card.alt_text) }}
+
+
+	{% if content.align %}
+		{# content.align is set to 1 when the image is on the left left, so render the text second #}
+		<div class="markdown">
+			{{ content.content|markdown }}			
+		</div>
+		
+	{% endif %}
+
+</div>

@@ -1,9 +1,10 @@
 {% set name = field.name %}
 {% set uidPlaceholder = '--BLOCK-UID--' %}
 
-<div class="blocks__new-modal">
+<div class="blocks__new-modal" style="padding: 48px; border-radius: 8px;">
 
-<h2>{{ 'PLUGIN_BLOCKS.NEW_HEADLINE'|t }}</h2>
+{# <h2>{{ 'PLUGIN_BLOCKS.NEW_HEADLINE'|t }}</h2> #}
+{# <h2>Add a page block</h2> #}
 
 {% for block_name, block_field in field.fields %}
         {% set template %}
@@ -19,9 +20,13 @@
                     field_templates:field_templates, 
                     template_data: template_data} %}
         {% endset %}
-
         <button class="button blocks__new-button" type="button" data-block-action="add"
-        data-block-template-html="{{ template|regex_replace('/([ \r\n]+)/', ' ')|e('html_attr') }}"><i class="fa fa-plus"></i> {{ block_field.label }}</button>
+        style="
+display: flex; align-items: center; justify-content: space-between;
+
+
+        " 
+        data-block-template-html="{{ template|regex_replace('/([ \r\n]+)/', ' ')|e('html_attr') }}"><div><div style="font-weight:600;">{{ block_field.label }}</div> <div style="white-space: normal;">{{ block_field.description }}</div></div><i class="fa fa-plus"></i></button>
 {% endfor %}
 
 </div>

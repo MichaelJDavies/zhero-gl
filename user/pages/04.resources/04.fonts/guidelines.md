@@ -7,24 +7,25 @@ sitemap:
 media_order: thumb-resources_min.webp
 thumbnail: thumb-resources_min.webp
 blocks:
-    b642fa1c-346c-4077-8bb2-2f60d546ca2a:
-        boxout-button:
+    fd8c63c7-a54d-4350-a3cd-e880629cb775:
+        call_to_action:
             heading: 'Download Mona Sans'
             content: 'Mona Sans is a free, open-source font. All weights are available to download from Google Fonts.'
-            buttontext: 'Go to Google Fonts'
-            buttontype: '2'
-            buttonurl: 'https://fonts.google.com/specimen/Mona+Sans'
-            buttonlinkinternal: /home
-            filedownload: null
-    b6cf4cdd-7e42-46b6-837f-6131f60ae637:
-        boxout-button:
+            button_text: 'Download font'
+            button_type: '2'
+            button_url: 'https://fonts.google.com/specimen/Mona+Sans'
+            button_link_internal: /home
+            file_download: null
+    6db474c7-d8e3-4df3-976c-9b1f758fb06d:
+        call_to_action:
             heading: 'Download Better Times'
             content: 'Better Times is created by Set Sail Studios and must be licensed to be used. Contact the leadership team if you need Better Times or visit Set Sail Studios'' website to license the font.'
-            buttontext: 'License font'
-            buttontype: '2'
-            buttonurl: 'https://setsailstudios.com/downloads/better-times-brush-font/'
-            buttonlinkinternal: /home
-            filedownload: null
+            button_text: 'License font'
+            button_type: '2'
+            button_url: 'https://setsailstudios.com/downloads/better-times-brush-font/'
+            button_link_internal: /home
+            file_download: null
 description: 'Information about where to download and license Zhero''s brand fonts. See the Typography page in the Design section for more guidance.'
+require_login: false
 ---
 

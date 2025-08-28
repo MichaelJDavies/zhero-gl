@@ -1,0 +1,22 @@
+
+{% set parent_route = content.parent_page %}
+{% set filter_featured = content.featured_filter %}
+
+{% set parent_page = page.find(parent_route) %}
+
+{% if parent_page %}
+  {% set children = parent_page.children.visible %}
+  {% if filter_featured %}
+    {% set children = children|filter(p => p.header.featured == false) %}
+  {% endif %}
+
+  <div class="columns-3">
+    {% for p in children %}
+      {# <li><a href="{{ p.url }}">{{ p.menu|default(p.title) }}</a></li> #}
+      {% include 'partials/cards/page_card.twig' %}
+    {% endfor %}
+  </div>
+
+{% else %}
+  <p>Parent page "{{ parent_route }}" not found.</p>
+{% endif %}

@@ -1,0 +1,25 @@
+state: enabled
+email: mkedavies@gmail.com
+fullname: 'Test User'
+language: en
+content_editor: default
+twofa_enabled: false
+twofa_secret: JYQI2BGUTGLKSA5SQ6GEEDNT4DERPOWX
+avatar: {  }
+hashed_password: $2y$10$3w9jGH/qGIhE76u9Cfe2mO1TCz.4Fql4eMeVwPmN5FUeXd.9Vny8O
+access:
+  site:
+    login: true
+  admin:
+    login: true
+    super: false
+    cache: true
+    configuration: false
+    pages: true
+    maintenance: true
+    statistics: true
+    plugins: false
+    themes: false
+    tools: false
+    users: true
+    flex-objects: false

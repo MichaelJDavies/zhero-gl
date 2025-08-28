@@ -1,14 +1,19 @@
 version: '1.2'
-timestamp: 1755295180
-count: 2
+timestamp: 1755677270
+count: 3
 index:
   michaeljdavies:
     storage_key: michaeljdavies
-    storage_timestamp: 1754845663
+    storage_timestamp: 1576975405
     key: michaeljdavies
     email: michaeldavies1995@gmail.com
   mike:
     storage_key: mike
-    storage_timestamp: 1754845663
+    storage_timestamp: 1755542888
     key: mike
+    email: mkedavies@gmail.com
+  testuser:
+    storage_key: testuser
+    storage_timestamp: 1755677270
+    key: testuser
     email: mkedavies@gmail.com

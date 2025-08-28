@@ -1,0 +1,14 @@
+<div class="section-head" data-trigger="{{ content.heading|lower|replace({' ': '-'}) }}" id="{{ content.heading|lower|replace({' ': '-'}) }}">
+	<div class="heading">
+		<h2>{{ content.heading }}</h2>
+		<div class="copy-link" data-anchor="{{ content.heading|lower|replace({' ': '-'}) }}">
+			{% include 'svgs/link.html.twig' %} 
+			<span class="tooltip">Copy link</span>
+		</div>
+	</div>
+	<div class="section-description columns-2">
+		<div>
+			<p>{{ content.content|markdown }}</p>	
+		</div>
+	</div>
+</div>

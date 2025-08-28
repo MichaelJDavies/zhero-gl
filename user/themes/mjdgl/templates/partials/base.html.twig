@@ -2,7 +2,7 @@
 <html lang="en">
 <!-- =====================================================================
 
-  If you're wondering who built the site, I did! It's built on Grav CMS.
+  Hey, wellcome under the hood, have a look around! Love, Mike x
 
  ===================================================================== !-->
 <head>
@@ -10,11 +10,9 @@
     {% block head %}
         <meta charset="utf-8" />
         <title>{% if header.title != "Home" %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}</title>
-
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {% include 'partials/metadata.html.twig' %}
-
         <link rel="icon" href="{{ url('theme://images/favicon/favicon.svg') }}">
         <link rel="mask-icon" href="{{ url('theme://images/favicon/pinned-tab.svg') }}" color="#051432">
         <link rel="alternate icon"  type="image/png" href="{{ url('theme://images/favicon/android-chrome-192x192.png') }}" />
@@ -26,7 +24,6 @@
 
         <link rel="canonical" href="{{ page.url(true, true) }}" />
     {% endblock head%}
-
 
     <meta property="og:title" content="{% if header.title != "Home" %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}"/>
     <meta property="og:description" content="Sustainable supply chains made easy."/>
@@ -40,7 +37,7 @@
         {# {% do assets.addCss('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', 99) %} #}
         {# {% do assets.addCss('theme://css/custom.css', 98) %} #}
         {% do assets.addCss('theme://css/main.min.css', 97) %}
-        <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="{{ url('theme://css/custom.css') }}" >
+        {# <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="{{ url('theme://css/custom.css') }}" > #}
         {# Fonts #}
         {# <link rel="preconnect" href="https://fonts.gstatic.com">
         <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=PT+Mono&display=swap"> #}
@@ -49,14 +46,6 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
-
-
-        {# <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
-
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
- #}
 
         {# AOS #}
         <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://unpkg.com/aos@2.3.1/dist/aos.css" >
@@ -68,23 +57,15 @@
         {{ assets.js()|raw }}
     {% endblock %}
 
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    {# <script async src="https://www.googletagmanager.com/gtag/js?id=G-PL0ZK20J6X"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-PL0ZK20J6X');
-    </script> #}
 </head>
 
 
 {# Body #}
 
-<body class="{{ page.header.body_classes }}">
-<main>
+<body class="{{ page.header.body_classes }}" >
+
+
+
 
 
     <div class="left">
@@ -134,7 +115,8 @@
         </nav>
 
         {% block body %}
-            <section id="swup" class="transition-fade">
+            <section id="swup" class="transition-fade" data-require-login="{{ page.header.require_login ? 'true' : 'false' }}"
+     data-logged-in="{{ grav.user.authenticated ? 'true' : 'false' }}" >
                 {% block content %}{% endblock %}
             </section>
         {% endblock %}
@@ -193,8 +175,6 @@
 
 
 
-</main>
-
 
 
 {% block bottom %}
@@ -204,30 +184,32 @@
 
 
 {# All External Libraries #}
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-{# Google Captcha #}
-<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
-    async defer>
-</script>
+{# <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 
 <script src="https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
 
 
-{# <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
- #}
+
 <script src="https://unpkg.com/@swup/ga-plugin@2"></script> 
 <script src="https://unpkg.com/@swup/scroll-plugin@3"></script> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/swup/4.5.0/Swup.umd.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> #}
 {# <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js" type="text/javascript"></script> #}
 
+{# Google Captcha #}
+{# <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+    async defer>
+</script>
+ #}
+{# <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+ #}
 
 
 {# My Code #}
 {# <script src="{{ url('theme://js/lottie.js') }}"></script> #}
-<script src="{{ url('theme://js/global.js') }}"></script>
+{# <script src="{{ url('theme://js/global.js') }}"></script> #}
 {# <script src="/user/themes/michael-j-davies/js/{{ header.title }}.js"></script> #}
 
 </body>

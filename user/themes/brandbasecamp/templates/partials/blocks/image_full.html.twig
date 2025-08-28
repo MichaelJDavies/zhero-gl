@@ -1,0 +1,24 @@
+
+{% set image = page.media[content.image] %}
+{{ img.responsive_image(image, content.alt_text) }}
+
+{# 
+
+{% set max_width = 1340 %}
+{% set retina_width = image.width > max_width*2 ? max_width*2 : image.width %}
+
+<img 
+    src="{{ image.resize(max_width, null, 'auto', 90).url }}" 
+    srcset="
+        {{ image.resize(400).url }} 400w,
+        {{ image.resize(800).url }} 800w,
+        {{ image.resize(max_width).url }} 1340w,
+        {{ image.resize(retina_width).url }} 2x
+    "
+    sizes="(max-width: 600px) 400px, (max-width: 1000px) 800px, 1340px"
+    alt="{{ content.alt_text is defined and content.alt_text ? content.alt_text : image.filename }}">
+
+ #}
+
+
+{# <img src="{{ page.media[content.image].url }}" alt="{{ content.alt_text }}" data-aos="fade-up"> #}

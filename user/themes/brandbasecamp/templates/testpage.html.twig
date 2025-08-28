@@ -1,0 +1,157 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+    {{ page.content|raw }}
+
+        <header>
+        <h1>Main Heading (h1)</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Subheading (h2)</h2>
+        <p>This is a paragraph with <strong>strong text</strong>, <em>emphasized text</em>, <mark>highlighted text</mark>, and <a href="#">a link</a>.</p>
+        
+        <h3>Subheading (h3)</h3>
+        <p>Another paragraph with <small>small text</small> and <del>deleted text</del>.</p>
+
+        <blockquote>
+            This is a blockquote. "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        </blockquote>
+
+        <pre>
+            Preformatted text
+            Line 2
+        </pre>
+
+        <code>console.log('Hello, world!');</code>
+    </section>
+
+    <section>
+        <h2>Lists</h2>
+        <h3>Unordered List</h3>
+        <ul>
+            <li>Item one</li>
+            <li>Item two</li>
+            <li>Item three</li>
+        </ul>
+
+        <h3>Ordered List</h3>
+        <ol>
+            <li>First</li>
+            <li>Second</li>
+            <li>Third</li>
+        </ol>
+
+        <h3>Description List</h3>
+        <dl>
+            <dt>HTML</dt>
+            <dd>A markup language for web pages.</dd>
+            <dt>CSS</dt>
+            <dd>Used to style HTML content.</dd>
+        </dl>
+    </section>
+
+    <section>
+        <h2>Forms</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your name">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your email">
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+            <fieldset>
+                <legend>Choose your hobbies:</legend>
+                <input type="checkbox" id="reading" name="hobby" value="reading">
+                <label for="reading">Reading</label>
+
+                <input type="checkbox" id="traveling" name="hobby" value="traveling">
+                <label for="traveling">Traveling</label>
+
+                <input type="checkbox" id="coding" name="hobby" value="coding">
+                <label for="coding">Coding</label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Choose your subscription:</legend>
+                <input type="radio" id="basic" name="subscription" value="basic">
+                <label for="basic">Basic</label>
+
+                <input type="radio" id="premium" name="subscription" value="premium">
+                <label for="premium">Premium</label>
+            </fieldset>
+
+            <textarea placeholder="Write something..."></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Media</h2>
+        <img src="https://via.placeholder.com/150" alt="Placeholder Image">
+        <figure>
+            <img src="https://via.placeholder.com/100" alt="Another image">
+            <figcaption>Image caption</figcaption>
+        </figure>
+
+        <audio controls>
+            <source src="audio.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <video width="320" height="240" controls>
+            <source src="video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
+
+    <section>
+        <h2>Tables</h2>
+        <table>
+            <caption>Sample Table</caption>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>City</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Alice</td>
+                    <td>25</td>
+                    <td>London</td>
+                </tr>
+                <tr>
+                    <td>Bob</td>
+                    <td>30</td>
+                    <td>New York</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">End of Table</td>
+                </tr>
+            </tfoot>
+        </table>
+    </section>
+{% endblock %}

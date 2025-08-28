@@ -1,11 +1,71 @@
 @charset "UTF-8";
+::selection {
+  background: #90E48B;
+  color: #181511; }
+
+::-moz-selection {
+  background: #90E48B;
+  color: #181511; }
+
+h1, h2, h3, h4, 56, p, a {
+  color: #181511;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Mona Sans", sans-serif;
+  line-height: 1;
+  color: #0B5507; }
+
+p, a, li {
+  font-family: "Mona Sans", sans-serif;
+  line-height: 1.5;
+  color: #181511; }
+
+h1 {
+  font-weight: 800;
+  font-size: 5rem; }
+  @media only screen and (max-width: 1200px) {
+    h1 {
+      font-size: 4rem; } }
+  @media only screen and (max-width: 800px) {
+    h1 {
+      font-size: 2rem; } }
+
+h2 {
+  font-weight: 800;
+  font-size: 2.5rem; }
+
+h3 {
+  font-weight: 800;
+  font-size: 1.5rem; }
+
+h4 {
+  font-weight: 800;
+  font-size: 1.2rem;
+  margin-bottom: 30px; }
+  @media only screen and (max-width: 800px) {
+    h4 {
+      margin: 0 0 0.7rem; } }
+
+p, li {
+  font-weight: 300;
+  font-size: 1.2rem; }
+
+a {
+  font-weight: 500;
+  font-size: 1rem;
+  color: #0B5507; }
+  a:hover {
+    color: #0B5507;
+    text-decoration: underline; }
+
 html,
 body {
   min-height: 100vh; }
 
 main {
   width: 100%;
-  min-height: 150vh;
   position: relative;
   max-width: 1700px;
   margin: 0 auto;
@@ -68,103 +128,6 @@ main {
 html.is-animating .transition-fade {
   opacity: 0; }
 
-.error {
-  background-color: #051432; }
-  .error .error-container {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center; }
-  .error .errorcontent {
-    margin-bottom: 40px; }
-  .error h1, .error p {
-    color: white; }
-  .error h1 {
-    font-size: 10vw;
-    line-height: 10vw;
-    margin: 0;
-    margin-bottom: 20px; }
-
-::selection {
-  background: #90E48B;
-  color: #0E100F; }
-
-::-moz-selection {
-  background: #90E48B;
-  color: #051432; }
-
-.intro {
-  font-size: 3.7rem;
-  line-height: 1.2;
-  letter-spacing: -0.1rem;
-  font-family: "Mona Sans", sans-serif;
-  font-weight: 300; }
-  @media only screen and (max-width: 1200px) {
-    .intro {
-      font-size: 4vw; } }
-  @media only screen and (max-width: 800px) {
-    .intro {
-      font-size: 2rem; } }
-
-h1, h2, h3, h4, p, a {
-  color: black;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased; }
-
-h1, h2, h3, h4 {
-  line-height: 1.1;
-  color: #0B5507; }
-
-p, a {
-  line-height: 1.3;
-  color: #20381E; }
-
-h1 {
-  font-family: "Mona Sans", sans-serif;
-  font-weight: 800;
-  font-size: 5rem; }
-  @media only screen and (max-width: 1200px) {
-    h1 {
-      font-size: 4rem; } }
-  @media only screen and (max-width: 800px) {
-    h1 {
-      font-size: 2rem; } }
-
-h2 {
-  font-family: "Mona Sans", sans-serif;
-  font-weight: 800;
-  font-size: 2.5rem; }
-
-h3 {
-  font-family: "Mona Sans", sans-serif;
-  font-weight: 800;
-  font-size: 1.5rem; }
-
-h4 {
-  font-family: "Mona Sans", sans-serif;
-  font-weight: 500;
-  font-size: 1.2rem;
-  margin-bottom: 30px; }
-  @media only screen and (max-width: 800px) {
-    h4 {
-      margin: 0 0 0.7rem; } }
-
-p, li {
-  font-family: "Mona Sans", sans-serif;
-  font-weight: 400;
-  font-size: 1.2rem; }
-
-a {
-  font-family: "Mona Sans", sans-serif;
-  font-weight: 400;
-  font-size: 1rem;
-  color: #0B5507; }
-  a:hover {
-    color: #0B5507;
-    text-decoration: underline; }
-
 .navmobshow {
   top: 0 !important; }
 
@@ -180,12 +143,6 @@ a {
   @media only screen and (max-width: 1200px) {
     .logo-mobile {
       display: block; } }
-
-.home nav {
-  justify-content: space-between;
-  width: 100%; }
-  .home nav .logo-mobile {
-    display: block; }
 
 nav {
   display: flex;
@@ -208,8 +165,6 @@ nav {
       nav .links-container .links svg {
         padding-top: 5px; }
       nav .links-container .links a {
-        font-family: "Mona Sans", sans-serif;
-        font-weight: 500;
         font-size: 18px;
         cursor: pointer;
         pointer-events: auto;
@@ -280,13 +235,10 @@ nav {
       width: 100%;
       padding: 20px;
       display: block;
-      border-bottom: 1px solid #0E100F;
+      border-bottom: 1px solid #181511;
       text-align: left;
       margin: 0;
-      font-family: "Mona Sans", sans-serif;
-      font-weight: 500;
       font-size: 4rem;
-      color: #0E100F;
       line-height: 0.8; }
 
 .on-page-nav {
@@ -297,8 +249,6 @@ nav {
   .on-page-nav li {
     margin: 4px 0; }
     .on-page-nav li a {
-      font-family: "Mona Sans", sans-serif;
-      font-weight: 500;
       font-size: 18px;
       -moz-osx-font-smoothing: grayscale;
       -webkit-font-smoothing: antialiased;
@@ -483,48 +433,48 @@ nav {
 .blocks-sectionsubhead {
   padding: 0 35px; }
 
-.blocks-cardlist {
+.blocks-pageCardList {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 32px;
   padding: 0 35px; }
   @media only screen and (max-width: 1200px) {
-    .blocks-cardlist {
+    .blocks-pageCardList {
       grid-template-columns: 1fr 1fr; } }
   @media only screen and (max-width: 800px) {
-    .blocks-cardlist {
+    .blocks-pageCardList {
       grid-template-columns: 1fr; } }
-  .blocks-cardlist a {
+  .blocks-pageCardList a {
     display: block; }
-    .blocks-cardlist a .thumbnail {
+    .blocks-pageCardList a .thumbnail {
       height: auto;
       width: 100%;
       margin: 0 0 15px;
       transition: all 0.2s ease;
       border-radius: 7px; }
-      .blocks-cardlist a .thumbnail video, .blocks-cardlist a .thumbnail img {
+      .blocks-pageCardList a .thumbnail video, .blocks-pageCardList a .thumbnail img {
         object-fit: cover;
         width: 100%;
         display: block;
         border-radius: 4px; }
 
-.blocks-featuredcardlist {
+.blocks-featured-page-card-list {
   width: 100%;
   display: flex;
   flex-direction: row;
   grid-gap: 32px;
   padding: 0 35px; }
-  .blocks-featuredcardlist a {
+  .blocks-featured-page-card-list a {
     width: 100%;
     display: block; }
-    .blocks-featuredcardlist a .thumbnail {
+    .blocks-featured-page-card-list a .thumbnail {
       height: auto;
       width: 100%;
       margin: 0 0 15px;
       transition: all 0.2s ease;
       border-radius: 7px; }
-      .blocks-featuredcardlist a .thumbnail video, .blocks-featuredcardlist a .thumbnail img {
+      .blocks-featured-page-card-list a .thumbnail video, .blocks-featured-page-card-list a .thumbnail img {
         object-fit: cover;
         width: 100%;
         display: block;
@@ -584,7 +534,6 @@ nav {
     padding: 18px 35px;
     background-color: #90E48B; }
     .blocks-pullout .inner p {
-      font-family: "Mona Sans", sans-serif;
       font-weight: 800;
       font-size: 2em; }
   .blocks-pullout .rightblock {
@@ -683,7 +632,6 @@ nav {
       display: grid;
       grid-template-columns: 1fr 1fr; }
       .blocks-swatch-cards .swatch-card .swatch-card-content .breakdown span {
-        font-family: "Mona Sans", sans-serif;
         font-weight: 700;
         font-size: 18px;
         color: #0B5507; }

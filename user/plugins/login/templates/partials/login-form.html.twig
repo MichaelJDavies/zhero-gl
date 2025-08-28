@@ -10,14 +10,16 @@
         {% set user = grav.user %}
         {% if user.authenticated and user.authorized %}
             <h4>{{ 'PLUGIN_LOGIN.WELCOME'|t }} <strong>{{ user.fullname ?: user.username }}</strong></h4>
-            <hr>
+            {# <hr> #}
             <a class="button logout" href="{{ uri.addNonce(base_url_relative ~ uri.path ~ '/task' ~ config.system.param_sep ~ 'login.logout', 'logout-form', 'logout-nonce')|e }}">{{ 'PLUGIN_LOGIN.BTN_LOGOUT'|t }}</a>
 
         {% elseif user.authenticated and user.twofa_enabled %}
             {% include 'partials/login-twofa.html.twig' %}
 
         {% else %}
-            {{ content|raw }}
+            {# {{ content|raw }} #}
+            <h1 class="h3">Log in </h1>
+            <p>Please log in to view this page.</p>
 
             {# NEW WAY OF INCLUDING 3RD PARTY LOGIN OPTIONS #}
             {% for template in grav.login.getProviderLoginTemplates %}
@@ -46,22 +48,22 @@
                 {% endfor %}
 
                 <div class="{{ form_button_outer_classes ?: 'form-actions secondary-accent' }}">
-                    {% if config.plugins.login.rememberme.enabled and form.login.rememberme ?? true %}
+   {#                  {% if config.plugins.login.rememberme.enabled and form.login.rememberme ?? true %}
                         <div class="form-data rememberme" data-grav-default="null" data-grav-disabled="true" data-grav-field="checkbox">
                             <div class="form-input-wrapper">
                                 <input type="checkbox" value="1" name="rememberme" id="#rememberme">
                                 <label class="inline" for="#rememberme" title="{{ 'PLUGIN_LOGIN.REMEMBER_ME_HELP'|t }}">{{ 'PLUGIN_LOGIN.REMEMBER_ME'|t }}</label>
                             </div>
                         </div>
-                    {% endif %}
+                    {% endif %} #}
 
-                    {% set forgot_button = form.login.forgot_button ?? true %}
+                   {#  {% set forgot_button = form.login.forgot_button ?? true %}
                     {% set forgot_route = grav.login.getRoute('forgot') %}
                     {% if forgot_button and forgot_route %}
                     <a class="{{ form_button_classes ?: 'button secondary' }}" href="{{ base_url_relative ~ forgot_route }}"><i class="fa fa-exclamation-circle"></i> {{ 'PLUGIN_LOGIN.BTN_FORGOT'|t }}</a>
-                    {% endif %}
+                    {% endif %} #}
 
-                    <button class="{{ form_button_classes ?: 'button primary' }}" type="submit"  name="task" value="login.login"><i class="fa fa-sign-in"></i> {{ 'PLUGIN_LOGIN.BTN_LOGIN'|t }}</button>
+                    <button class=" btn {{ form_button_classes ?: 'button primary' }}" type="submit"  name="task" value="login.login"><i class="fa fa-sign-in"></i> {{ 'PLUGIN_LOGIN.BTN_LOGIN'|t }}</button>
                 </div>
 
                 {{ nonce_field('login-form', 'login-form-nonce')|raw }}

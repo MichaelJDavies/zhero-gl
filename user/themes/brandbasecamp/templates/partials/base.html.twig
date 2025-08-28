@@ -1,0 +1,154 @@
+{% import 'partials/macros/image.html.twig' as img %}
+<!DOCTYPE html>
+<html lang="en">
+<!-- =====================================================================
+
+  Hey, wellcome under the hood, have a look around! Love, Mike x
+
+ ===================================================================== !-->
+<head>
+
+    {% block head %}
+        <meta charset="utf-8" />
+        <title>{% if header.title != "Home" %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% include 'partials/metadata.html.twig' %}
+        <link rel="icon" href="{{ url('theme://images/favicon/favicon.svg') }}">
+        <link rel="mask-icon" href="{{ url('theme://images/favicon/pinned-tab.svg') }}" color="#051432">
+        <link rel="alternate icon"  type="image/png" href="{{ url('theme://images/favicon/android-chrome-192x192.png') }}" />
+        <link rel="alternate icon"  type="image/png" href="{{ url('theme://images/favicon/android-chrome-512x512.png') }}" />
+        <link rel="alternate icon"  type="image/png" href="{{ url('theme://images/favicon/apple-touch-icon.png') }}" />
+        <link rel="alternate icon" type="image/png" href="{{ url('theme://images/favicon/favicon-16x16.png') }}" />
+        <link rel="alternate icon"  type="image/png" href="{{ url('theme://images/favicon/favicon-32x32.png') }}" />
+        <link rel="alternate icon"  type="image/png" href="{{ url('theme://images/favicon/favicon.ico') }}" />
+        <link rel="canonical" href="{{ page.url(true, true) }}" />
+        <meta property="og:title" content="{% if header.title != "Home" %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}"/>
+        <meta property="og:description" content="{{ site.metadata.description }}"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:image" content="{{ url('theme://images/og/Zhero-OG_min.webp') }}"/>
+        <meta name="theme-color" content="#ffffff">
+
+    {% endblock head %}
+
+    
+    {% block stylesheets %}
+    
+        <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" >
+        {% do assets.addCss('theme://css/variables.css', 96) %}
+        {% do assets.addCss('theme://css/main.min.css', 97) %}
+
+        {# Fonts #}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
+        {# AOS #}
+        <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://unpkg.com/aos@2.3.1/dist/aos.css" >
+
+    {% endblock %}
+
+    {% block assets deferred %}
+        {{ assets.css()|raw }}
+        {{ assets.js()|raw }}
+    {% endblock %}
+
+</head>
+
+
+{# Body #}
+
+<body >
+
+
+    {# Flex container #}
+    <div class="container">
+
+        {# Logo box #}
+        <div class="logo {{ page.template == 'guidelines' ? 'sticky' }}">
+            <a aria-label="{{ site.title }}" href="/">{% include 'svgs/Zhero-Primary.svg' %}</a>
+        </div>
+
+
+        {# Top nav #}
+        <nav aria-label="primary navigation" class="primary-navigation">
+            <div class="desktop-links">
+                {% set coll = page.collection({
+                  items: '@root.pages',
+                  order: { by: 'default', dir: 'asc' }
+                }) %}
+
+
+                {% for p in coll if p.route != '/' %}
+                    {% set is_active = p.active or p.activeChild %}
+                  <a class="{{ is_active ? 'active' : '' }}" href="{{ p.url|e }}">{{ p.menu|default(p.title)|e }}  {% if p.header.access is defined and p.header.access['site.login'] is defined and p.header.access['site.login'] and not grav.user.authenticated %}{% include 'svgs/lock.svg' %}{% endif %}</a>
+                {% endfor %}
+                {% if grav.user.authenticated %}
+                     <a href="/login">{% include 'svgs/profile.svg' %}</a>
+                {% endif  %}
+
+                <a aria-label="search" href="/search">{% include 'svgs/Search.svg' %}</a>
+            </div>
+            <div class="mobile-links">
+                <a id="mobile" onclick="navmob(this)" href="#">
+                    {% include 'svgs/hamburger.html.twig' %}
+                </a>
+            </div> 
+        </nav>
+
+        {# Side nav #}
+        <aside class="sticky transition-fade" {{ page.template == 'home' ? 'hidden' }}>
+            <ul aria-label="secondary navigation" >
+                {% block onpagenav %}{% endblock %}
+            </ul>
+        </aside>
+
+        {# Main content #}
+        <main>
+            <article id="swup" class="transition-fade">
+                {% block content %}{% endblock %}
+            </article>
+
+            <footer id="footer">
+                <hr />
+                <div class="footer-content">
+                    <div>© Zhero 2025</div>
+                    <div>Design: <a href="https://mjd.studio">MJD Studio</a></div>
+                </div>
+            </footer>
+        </main>
+
+    </div>
+
+
+    {# Mobile Navigation #}
+    <nav aria-label="mobile navigation" id="mobNav">
+        <div class="moblinks">
+            {% set coll = page.collection({
+                      items: '@root.pages',
+                      order: { by: 'default', dir: 'asc' }
+                    }) %}
+
+
+                    {% for p in coll %}
+                        {% set is_active = p.active or p.activeChild %}
+                      <a onclick="navmobClose(this)" class="{{ is_active ? 'active' : '' }}" href="{{ p.url|e }}">{{ p.menu|default(p.title)|e }}{% if p.header.access is defined and p.header.access['site.login'] is defined and p.header.access['site.login'] %}{% include 'svgs/lock.svg' %}{% endif %}</a>
+                    {% endfor %}
+        </div>
+    </nav>
+    
+    <div id="overlay"></div>
+
+
+
+
+
+
+
+{% block bottom %}
+    {{ assets.js('bottom')|raw }}
+{% endblock %}
+
+
+</body>
+</html>

@@ -1,6 +1,8 @@
 {% extends 'partials/base.html.twig' %}
 
 
+
+
 {% block onpagenav %}
 
 
@@ -10,8 +12,10 @@
 
 {% set parent_page = page.find(opn_nav_route) %}
 
-{% if parent_page %}
-  {% set children = parent_page.children.visible %}
+{# Check if the parent page exists and if the user has access #}
+{% if parent_page and (not parent_page.header.locked or (grav.user and grav.user.authorized('site.login'))) %}
+
+    {% set children = parent_page.children.visible %}
 {#   {% if filter_featured %}
     {% set children = children|filter(p => p.header.featured == false) %}
   {% endif %} #}
@@ -56,6 +60,7 @@
 
 
 {% block content %}
+
 
 {# Hero Section #}
 

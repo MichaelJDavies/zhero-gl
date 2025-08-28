@@ -2,10 +2,10 @@
 
 {% block content %}
     <div class="content-padding simplesearch">
-        <h1 class="search-header">{{ "PLUGIN_SIMPLESEARCH.SEARCH_RESULTS"|t }}</h1>
         <div class="center">
             {% include 'partials/simplesearch_searchbox.html.twig' %}
         </div>
+        
         <p>
             {% if query %}
                 {% set count = search_results ? search_results.count : 0 %}
@@ -16,8 +16,17 @@
                 {% endif %}
             {% endif %}
         </p>
-        {% for page in search_results %}
-            {% include 'partials/simplesearch_item.html.twig' with {'page': page} %}
-        {% endfor %}
+
+        {% if query %}
+            <h1 class=" h2 search-header">{{ "PLUGIN_SIMPLESEARCH.SEARCH_RESULTS"|t }}</h1>
+        {% endif %}
+
+
+        <div class="columns-3">
+            {% for page in search_results %}
+                {# {% include 'partials/simplesearch_item.html.twig' with {'page': page} %} #}
+                {% include 'partials/cards/page_card.twig' with {'p': page} %}
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}

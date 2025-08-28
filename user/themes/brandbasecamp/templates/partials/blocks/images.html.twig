@@ -1,0 +1,12 @@
+{% if block_element['images'] is defined %}
+  {% set card_data = block_element['images'] %}
+  {% set column = card_data.columns %}
+
+
+	<div class="columns-{{ column }}">
+
+		{% for card in card_data.cards %}
+			<img src="{{ page.media[card.image].url }}" alt="">	
+		{% endfor %}
+	</div>
+{% endif %}
